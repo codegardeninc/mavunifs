@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons mode="ios">
+      <ion-button>
+      </ion-button>
+      <ion-button></ion-button>
+    </ion-buttons>
+    <ion-title >Support Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <div class="button-right">
+      <ion-button (click)="showForm()" slot="end" fill="clear" mode="ios">
+        Submit a ticket <img src="../../assets/icon/add_money_icon.svg" >
+      </ion-button>
+    </div>
+    <div class="container">
+      <ion-segment (ionChange)="segmentChanged($event)" value="all" mode="ios">
+        <ion-segment-button value="all">
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="answered">
+          <ion-label>Answered</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="pending">
+          <ion-label>Pending</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  
+    <div class="container ticket-form" [hidden]="isNewTicket === false">
+      <form #form="ngForm" (onSubmit)="submitTicket(form)">
+        <ion-input type="text" name="title" placeholder="Title" required [(ngModel)]="details.title"></ion-input>
+        <ion-textarea name="body" placeholder="Message" [(ngModel)]="details.body" required>        
+        </ion-textarea>
+        <ion-button (click)="submitTicket(form)" expand="block" color="primary" mode="ios">
+          Submit
+        </ion-button>
+      </form>
+    </div>
+  
+    <div class="all" [hidden]="pending === true || answered === true || all === false">    
+      <div class="transaction " *ngFor="let ticket of tickets">      
+        <div class="d-flex ticket" (click)="onClick(ticket.id)">
+          <span>
+            <h6>{{ticket.title}}</h6>
+            <small>{{ticket.created_at}}</small>
+          </span>
+          <span class="danger" [ngClass]="{'danger': ticket.status === 'pending', 'success': ticket.status === 'answered'}">
+            {{ticket.status}}
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="debit" [hidden]="all === true || answered === true">    
+      <div class="transaction " *ngFor="let ticket of pendingTickets">      
+        <div class="d-flex ticket" (click)="onClick(ticket.id)">
+          <span>
+            <h6>{{ticket.title}}</h6>
+            <small>{{ticket.created_at}}</small>
+          </span>
+          <span class="danger" [ngClass]="{'danger': ticket.status === 'pending', 'success': ticket.status === 'answered'}">
+            {{ticket.status}}
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="credit" [hidden]="all === true || pending === true">    
+      <div class="transaction " *ngFor="let ticket of answeredTickets">      
+        <div class="d-flex ticket" (click)="onClick(ticket.id)">
+          <span>
+            <h6>{{ticket.title}}</h6>
+            <small>{{ticket.created_at}}</small>
+          </span>
+          <span class="danger" [ngClass]="{'danger': ticket.status === 'pending', 'success': ticket.status === 'answered'}">
+            {{ticket.status}}
+          </span>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="empty" [hidden]="tickets.length > 0">    
+      <img src="../../assets/icon/transaction_empty_state_icon.svg" alt="">
+      <h6 class="text-primary">Opps! no history of <br> support tickets yet</h6>
+      <ion-button (click)="showForm()" color="primary" mode="ios">
+        Submit a ticket
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>
+ 

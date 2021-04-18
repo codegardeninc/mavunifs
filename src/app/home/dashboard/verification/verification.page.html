@@ -1,0 +1,137 @@
+<!-- Form -->
+<div class="overlay">
+  <div class="form">
+    <form #form="ngForm" (onSubmit)="verify(form)" [hidden]="action_type === 'next_of_kin' || action_type === 'resi_address'">
+      <div>          
+        <ion-buttons slot="end" class="ion-align-items-center right">
+          <ion-button (click)="closeModal()" mode="ios">
+            Close X
+          </ion-button>
+        </ion-buttons>
+
+        <div>
+          <h4>
+            Why do we need your National ID
+            <small>We need to verify your identity <br />
+               The National ID allows us confirm that your data such as name, date of birth and phone number are correct. <br /> We cannot have access to your banking details. 
+  
+            </small>
+          </h4>
+          
+          <div>
+            <ion-input 
+              type="text" 
+              placeholder="Enter ID Number"
+              [(ngModel)]="details.national_id"
+              name="national_id" 
+            ></ion-input>
+          </div>
+          
+          <div class="btn btn-2">            
+            <ion-button (click)="verify(form)" mode="ios" expand="block">
+              SUBMIT
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form #kinform="ngForm" (onSubmit)="submitNextOfKin(kinform)" [hidden]="action_type === 'national_id' || action_type === 'resi_address'">
+      <div>          
+        <ion-buttons slot="end" class="ion-align-items-center right">
+          <ion-button (click)="closeModal()" mode="ios">
+            Close X
+          </ion-button>
+        </ion-buttons>
+
+        <div>
+          <h4>
+            Next of Kin Details
+          </h4>
+          
+          <div>
+            <ion-input 
+              type="text" 
+              placeholder="Name"
+              [(ngModel)]="next_of_kin.name"
+              name="name" 
+              required
+            ></ion-input>
+          </div>
+          
+          <div>
+            <ion-input 
+              type="text" 
+              placeholder="Relationship"
+              [(ngModel)]="next_of_kin.relationship"
+              name="relationship" 
+              required
+            ></ion-input>
+          </div>
+          
+          <div>
+            <ion-input 
+              type="text" 
+              placeholder="Phone Number"
+              [(ngModel)]="next_of_kin.phoneNumber"
+              name="phoneNumber" 
+              inputmode="tel"
+              required
+            ></ion-input>
+          </div>
+          
+          <div>
+            <ion-input 
+              type="text" 
+              placeholder="Email Address"
+              [(ngModel)]="next_of_kin.email"
+              name="email" 
+              inputmode="email"
+              required
+            ></ion-input>
+          </div>
+          
+          <div class="btn btn-2">            
+            <ion-button (click)="submitNextOfKin(kinform)" mode="ios" expand="block">
+              SUBMIT
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form #adform="ngForm" (onSubmit)="submitAddress(adform)" [hidden]="action_type === 'national_id' || action_type === 'next_of_kin'">
+      <div>          
+        <ion-buttons slot="end" class="ion-align-items-center right">
+          <ion-button (click)="closeModal()" mode="ios">
+            Close X
+          </ion-button>
+        </ion-buttons>
+
+        <div>
+          <h4>
+            Residential Address
+          </h4>
+          
+          <div>
+            <ion-textarea 
+              placeholder="Enter Residential Address"
+              [(ngModel)]="detail.residential_address"
+              name="residential_address" 
+              required
+            ></ion-textarea>
+          </div>
+          
+          <div class="btn btn-2">            
+            <ion-button (click)="submitAddress(adform)" mode="ios" expand="block">
+              SUBMIT
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</div>
+<!-- Form -->

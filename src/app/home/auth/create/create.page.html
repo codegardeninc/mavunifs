@@ -1,0 +1,73 @@
+<ion-content>
+  <div id="container">    
+    <div class="form" >
+      <div class="create">  
+        <form #form="ngForm" (onSubmit)="updateData(form)">
+          <h3>Create Profile</h3>
+          <div>
+            <ion-label class="label">First Name</ion-label>
+            <ion-input 
+              type="text" 
+              placeholder="Full Name"
+              name="first_name"
+              required
+              [(ngModel)]="profileDetails.first_name"
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label class="label">Last Name</ion-label>
+            <ion-input 
+              type="text" 
+              placeholder="Last Name"
+              name="last_name"
+              required
+              [(ngModel)]="profileDetails.last_name"
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label class="label">Email Address</ion-label>
+            <ion-input 
+              type="email" 
+              placeholder="Email Address"
+              required
+              name="email"
+              [(ngModel)]="profileDetails.email"
+              required
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label class="label">Gender </ion-label>
+            <ion-select 
+              name="gender" 
+              [(ngModel)]="profileDetails.gender"
+              required
+              placeholder="Select Gender"
+            >
+            <!-- <ion-select-option>Select Gender</ion-select-option> -->
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+          </ion-select>
+          </div>
+          <div>
+            <ion-label class="label">Date of Birth</ion-label>
+            <ion-input 
+              type="date" 
+              placeholder="Date of Birth"
+              name="dob"
+              required
+              [(ngModel)]="profileDetails.dob"
+            ></ion-input>
+          </div>
+          <div class="btn">
+            <ion-button (click)="updateData(form)" expand="block" mode="ios">
+              Submit
+            </ion-button>
+            <ion-button class="l-btn" (click)="goBack()" expand="block" fill="clear" color="primary" mode="ios">
+              Cancel
+            </ion-button>
+          </div>
+        </form>      
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-content>
+  <div id="container">
+    <ion-buttons slot="start" class="ion-justify-content-between">
+      <ion-button (click)="goBack()" mode="ios" class="ion-text-left">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>    
+        Back
+      </ion-button>
+    </ion-buttons>
+ 
+    <h3>Notification</h3>
+    <div class="notifications">
+      <ion-segment value="general" (ionChange)="segmentChanged($event)" mode="ios" class="ion-justify-content-between">
+        <ion-segment-button value="general" >
+          <ion-label>General</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="payment">
+          <ion-label>Payment</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      
+      <ion-list>
+        <ion-item-sliding *ngFor="let notification of notifications" [hidden]="is_payment === true">
+          <ion-item>
+            <span>
+              <h5>{{notification.created_at}}</h5>
+              <small>{{notification.message}}</small>
+            </span>
+          </ion-item>
+          <ion-item-options side="end" mode="ios">
+            <ion-item-option color="danger" (click)="clearNotification(notification.id)" mode="ios">Clear</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item-sliding *ngFor="let notification of payment" [hidden]="is_payment === false">
+          <ion-item>
+            <span>
+              <h5>{{notification.created_at}}</h5>
+              <small>{{notification.message}}</small>
+            </span>
+          </ion-item>
+          <ion-item-options side="end" mode="ios">
+            <ion-item-option color="danger" (click)="clearNotification(notification.id)" mode="ios">Clear</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+
+        <!-- <ion-item-sliding>
+          <ion-item>
+            <span>
+              <h5>Today Jul 24</h5>
+              <small>Your loan of N40,000 has been approved and added to  your account</small>
+            </span>
+          </ion-item>
+          <ion-item-options side="end" mode="ios">
+            <ion-item-option color="danger" (click)="clear()" mode="ios">Clear</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+          <ion-item>
+            <span>
+              <h5>Today Jul 24</h5>
+              <small>Your loan of N40,000 has been approved and added to  your account</small>
+            </span>
+          </ion-item>
+          <ion-item-options side="end" mode="ios">
+            <ion-item-option color="danger" (click)="clear()" mode="ios">Clear</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+          <ion-item>
+            <span>
+              <h5>Today Jul 24</h5>
+              <small>Your loan of N40,000 has been approved and added to  your account</small>
+            </span>
+          </ion-item>
+          <ion-item-options side="end" mode="ios">
+            <ion-item-option color="danger" (click)="clear()" mode="ios">Clear</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding> -->
+      </ion-list>
+
+    </div>
+  </div>
+</ion-content>

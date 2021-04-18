@@ -1,0 +1,121 @@
+<ion-content>
+  <div id="container">       
+    <div>
+      <ion-buttons slot="start" class="ion-align-items-center ion-justify-content-between">
+        <h3>Profile</h3>
+        <ion-button (click)="signOut()" mode="ios">
+          Sign Out
+        </ion-button>
+      </ion-buttons>
+      <!-- Card -->
+      <ion-card>
+        <ion-card-content>
+          <div class="ion-text-center">
+            <img src="{{profile_photo}}"  class="avatar">
+          </div>
+          <h4>          
+            {{first_name}} {{last_name}}
+            <img src="../../../../assets/icon/correct.svg" alt="verified" width="20">
+            <small>{{email}}</small>
+          </h4>
+          <div class="d-flex">
+            <span>
+              <ion-icon name="person-circle"></ion-icon>
+              Mavunifs: {{account_number}}
+            </span>
+            <span>
+              <ion-icon name="person-circle"></ion-icon>
+              Phone: {{phone_number}}
+            </span>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <!-- Card -->
+  
+      <!-- Lists -->
+      <div class="lists" >
+        <h5>GENERAL</h5>
+        <div class="nav-item" (click)="gotoPage('edit')">
+          <ion-icon name="settings" slot="start"></ion-icon>
+          <span>
+            <ion-label>Profile Settings</ion-label>
+            <small>Update your profile</small>
+          </span>
+          <ion-icon name="chevron-forward" slot="start" class="no-background"></ion-icon>
+        </div>
+        <div class="nav-item" (click)="gotoPage('card')">
+          <ion-icon name="card" slot="start"></ion-icon>
+          <span>
+            <ion-label>My Cards</ion-label>
+            <small>Add and update your card</small>
+          </span>
+          <ion-icon name="chevron-forward" slot="start" class="no-background"></ion-icon>
+        </div>
+        <div class="nav-item" (click)="gotoPage('notification-setting')">
+          <ion-icon name="notifications" slot="start"></ion-icon>
+          <span>
+            <ion-label>Notifications</ion-label>
+            <small>Change your notification settings</small>
+          </span>
+          <ion-icon name="chevron-forward" slot="start" class="no-background"></ion-icon>
+        </div>
+        <div class="nav-item" (click)="gotoPage('refer')">
+          <ion-icon name="notifications" slot="start"></ion-icon>
+          <span>
+            <ion-label>Refer and Earn</ion-label>
+          </span>
+          <ion-icon name="chevron-forward" slot="start" class="no-background"></ion-icon>
+        </div>
+        <div class="nav-item" (click)="gotoPage('kyc')">
+          <ion-icon name="pie-chart" slot="start"></ion-icon>
+          <span>
+            <ion-label>KYC</ion-label>
+          </span>
+          <ion-icon name="chevron-forward" slot="start" class="no-background"></ion-icon>
+        </div>
+        <div class="nav-item" (click)="support()">
+          <ion-icon name="headset" slot="start"></ion-icon>
+          <span>
+            <ion-label>Support</ion-label>
+          </span>
+          <ion-icon name="chevron-forward" slot="start" class="no-background"></ion-icon>
+        </div>  
+      </div>
+      <!-- Lists -->
+    </div>
+ 
+    <div class="form" >
+
+      <div class="details" *ngIf="details">        
+        <div class="ion-text-center">
+          <h3>Profile Details</h3>
+          <img src="../../../../assets/imgs/avatar.jpg" alt="profile-photo" class="avatar">
+        </div>
+        <div>
+          <ion-label class="label">Full Name</ion-label>
+          <ion-input type="text" placeholder="Full Name"></ion-input>
+        </div>
+        <div>
+          <ion-label class="label">Email Address</ion-label>
+          <ion-input type="email" placeholder="Email Address"></ion-input>
+        </div>
+        <div>
+          <ion-label class="label">Phone Number</ion-label>
+          <ion-input type="text" placeholder="Phone Number"></ion-input>
+        </div>
+        <div>
+          <ion-label class="label">Date of Birth</ion-label>
+          <ion-input type="date" placeholder="Date of Birth"></ion-input>
+        </div>
+        <div class="buttons btn">
+          <ion-button (click)="onClick()" expand="block" class="btn-transparent" mode="ios">
+            Skip
+          </ion-button>
+          <ion-button (click)="onClick()" expand="block" mode="ios">
+            Save
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

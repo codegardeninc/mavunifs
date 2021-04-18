@@ -1,0 +1,30 @@
+<div class="overlay">
+  <div class="form">
+    <!-- Transaction  failure -->
+    <div>
+      <ion-buttons class="right">
+        <ion-button (click)="closeModal()" fill="clear" mode="ios">
+          Close X
+        </ion-button>
+      </ion-buttons>
+      <div class="clear"></div>
+      <div class="ion-text-center">      
+        <div class="danger">
+          <img src="../../../../assets/imgs/close.png" alt="failed">
+        </div>  
+        <div class="text-center">
+          <h5> 
+            {{title}}
+          </h5> 
+          <small class="danger">{{message}}</small> <br>
+        </div> 
+        <div class="btn btn-black" >
+          <ion-button (click)="doAction()" expand="block" mode="ios">
+            {{label}}
+          </ion-button>
+        </div>   
+      </div>
+    </div>
+    <!-- Transaction  failure -->
+  </div>
+</div>

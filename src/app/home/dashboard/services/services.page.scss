@@ -1,0 +1,95 @@
+#container {
+	padding: 30px 30px;
+	font-family: 'Poppins';
+	position: relative;
+
+	h3 {
+		margin: 15px 0px 15px 0px;
+		color: #0b4db1;
+		font-family: "Poppins";
+		font-size: 18px;
+		letter-spacing: 0.45px;
+		line-height: 28px;
+
+		p {
+			font-size: 12px;
+			color: #8c8c8c;
+			padding-top: 0px !important;
+		}
+	}
+}
+
+ion-buttons {
+	margin: 20px 0 10px 0;
+	ion-button {
+		--opacity: 1;
+		--padding-end: 0px;
+		--padding-start: 0px;
+		--background-hover: transparent;
+		margin: 0;
+		font-family: 'Poppins';
+		font-style: normal;
+		height: 19px;
+		--color: #09419e;
+		font-size: 13px;
+		letter-spacing: 0.16px;
+		line-height: 20px;
+		margin-left: -7px !important;
+	}
+}
+
+h6 {
+	color: #0e5dc9;
+	font-family: "Poppins";
+	font-size: 16px;
+	letter-spacing: 0;
+	line-height: 25px;
+	margin: 0;
+}
+
+ion-searchbar {
+	height: 46px;
+	width: 100%;
+	font-family: 'Poppins';
+	font-size: 12px;
+	margin: 20px 0;
+	padding: 0px;
+	--border-radius: 8px;
+	--box-shadow: 0 0 5px rgba(#f3f3f3, 0.25);
+	--background: #f5f6fb;
+	--color: #77869e;
+}
+
+.box {
+	box-shadow: 0 0 10px rgba(#333333, 0.2);
+	padding: 40px 20px;
+	border-radius: 8px;
+	min-height: 200px;
+	font-weight: normal;
+	font-size: 14px;
+	background-color: #ffffff;
+	margin: 5px 0;
+
+	ion-icon {
+		font-size: 24px;
+	}
+
+	img {
+		width: 30px;
+		margin: 10px 0;
+	}
+}
+
+ion-row {
+	margin: 20px auto;
+}
+
+ion-col {
+	--ion-grid-column-padding: 5px;
+	--ion-grid-column-padding-xs: 5px;
+	--ion-grid-column-padding-sm: 5px;
+	--ion-grid-column-padding-md: 5px;
+	--ion-grid-column-padding-lg: 5px;
+	--ion-grid-column-padding-xl: 5px;
+	--ion-grid-columns: 10.5;
+}

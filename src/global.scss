@@ -1,0 +1,180 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+#container {
+	//background: url(./assets/imgs/white_background.png);
+	//background-repeat: no-repeat;
+	background-size: contain;
+	background-color: #ffffff;
+}
+
+.toast {
+	--background: var(--ion-color-primary);
+	--border-radius: 1px;
+	--button-color: #ffffff;
+	--color: #fff;
+}
+
+.swiper-pagination {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5vh !important;
+}
+
+.swiper-pagination-bullet-active {
+	height: 15px;
+	width: 15px;
+}
+.card-bg-primary {
+	--background: linear-gradient(325.19deg, #3d4778 0%, #444d89 100%);
+}
+.card-bg-secondary {
+	--background: linear-gradient(270deg, #0089cf 0%, #ad2a86 100%);
+}
+.card-bg-purple {
+	--background: linear-gradient(270deg, #0f4094 0%, #0f4094 100%);
+}
+
+.credit {
+	border-left: solid 10px var(--ion-color-success); //#5eec1c;
+}
+.debit {
+	border-left: solid 10px var(--ion-color-danger);
+}
+
+ion-segment {
+	box-sizing: border-box;
+	height: 44px;
+	// width: 333px;
+	width: 100%;
+	border: 2px solid rgba(235, 235, 235, 0.78);
+	border-radius: 11px;
+	background: linear-gradient(154.04deg, #ffffff 0%, #ffffff 100%);
+	box-shadow: inset -5px -5px 10px 0 #fafbff, inset 5px 5px 10px 0 rgba(166, 171, 189, 0.85);
+}
+.segment-button-checked {
+	height: 36px;
+	width: 164px;
+	border-radius: 10px;
+	background-color: #0e5eca;
+	box-shadow: 0 3px 27px 0 #fafbff, 5px -1px 9px 0 rgba(69, 80, 122, 0.55);
+
+	ion-label {
+		height: 19px;
+		width: 115px;
+		color: #ffffff;
+		font-family: "Poppins";
+		font-size: 13px;
+		letter-spacing: 0.11px;
+		line-height: 20px;
+	}
+}
+
+ion-segment-button {
+	--indicator-color: transparent;
+	ion-label {
+		height: 19px;
+		width: 85px;
+		color: #77869e;
+		font-family: "Poppins";
+		font-size: 13px;
+		letter-spacing: 0.11px;
+		line-height: 20px;
+	}
+}
+
+.kredda {
+	height: 44px;
+	width: 198px;
+	opacity: 0.73;
+	color: #ffffff;
+	// color: #EAEAEA;
+	font-family: "Airstrike Outline";
+	font-size: 51px;
+	letter-spacing: 0;
+	line-height: 44px;
+	text-align: justify;
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+	font-size: 12px;
+}
+
+.searchbar-search-icon.sc-ion-searchbar-md {
+	width: 19px;
+	height: 19px;
+}
+
+ion-button {
+	--background-hover: transparent;
+}
+.error-msg {
+	color: var(--ion-color-danger) !important;
+	text-align: center;
+	width: 100%;
+	/* margin-bottom: 10px; */
+	/* --padding-bottom: 10px; */
+	display: block;
+	font-weight: 500;
+}
+
+ion-input {
+	--padding-start: 10px !important;
+}
+
+//allow list to overwrap
+.alert-radio-label.sc-ion-alert-md,
+.alert-radio-label.sc-ion-alert-ios {
+	white-space: normal !important;
+	font-size: 12px !important;
+}
+
+ion-input {
+	--background: #f2f2f2;
+	--placeholder-font-style: initial;
+	--placeholder-font-weight: initial;
+	--placeholder-opacity: 0.5;
+	--padding-top: 15px;
+	--padding-bottom: 15px;
+	--padding-start: 15px;
+	--placeholder-color: var(--ion-color-secondary-contrast) !important;
+	--color: var(--ion-color-dark) !important;
+	border-radius: 6px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+
+.label {
+	padding: 30px 0 !important;
+	font-size: 12px;
+	font-family: 'Poppins';
+	font-weight: 600;
+	color: var(--ion-color-dark) !important;
+}

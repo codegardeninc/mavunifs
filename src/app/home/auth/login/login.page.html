@@ -1,0 +1,50 @@
+<ion-content>
+  <div id="container">
+    <ion-buttons  class="ion-justify-content-between ion-align-items-center">
+      <ion-button slot="start" mode="ios" class="logo ion-text-left">
+        M
+      </ion-button>
+      <ion-button slot="end" routerLink="/home" class="times" mode="ios">
+        X
+      </ion-button>
+    </ion-buttons>
+    <h3>
+      Welcome {{lastName}}, 
+      <p>Please log in to your Mavunifs account</p>
+    </h3>
+    <span class="error-msg" *ngIf="errorMsg">{{errorMsg}}</span>
+    <form #form="ngForm" (onSubmit)="login(form)">
+      <div>
+        <ion-label class="label">Enter PIN</ion-label>
+        <ion-input 
+          type="password"
+          name="password" 
+          placeholder="Enter PIN" 
+          inputmode="numeric"
+          [(ngModel)]="loginParams.password" 
+          ngModel
+          required
+        >          
+        </ion-input>
+        <input type="hidden" name="email" [(ngModel)]="loginParams.email" ngModel>
+      </div>
+      <div class="login-buttons">
+      <div>
+        <ion-button (click)="onReg()" small fill="clear" mode="ios">
+          I'm not {{username}} 
+        </ion-button>
+      </div>
+      <div class="forgot-pin">
+        <ion-button (click)="forgotPin()" small fill="clear" mode="ios">
+          I forgot my PIN
+        </ion-button>
+      </div>
+    </div>
+      <div class="btn">      
+        <ion-button (click)="login(form)" expand="block" mode="ios">
+          Login
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-content>
+  <div id="container">    
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+     <h3>Withdraw</h3>
+
+     <div class="ion-text-center card">
+       <h6>Wallet Balance</h6>
+       <strong>{{balance | currency:"ZAR":'symbol':"1.2"}}</strong>
+     </div> 
+
+      <div class="forms">
+        <form #form="ngForm" (onSubmit)="onClick(form)">          
+          <div>
+            <ion-label>Amount to withdraw</ion-label>
+            <ion-input 
+              type="text"
+              placeholder="ZAR3,000"
+              inputmode="numeric"
+              required
+              name="amount"
+              [(ngModel)]="details.amount"
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label>Account Number</ion-label>
+            <ion-input 
+              type="text"
+              placeholder="Account Number"
+              inputmode="numeric"
+              required
+              name="account_number"
+              [(ngModel)]="details.accountNumber"
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label>Narration</ion-label>
+            <ion-input 
+              type="text" 
+              placeholder="Narration"
+              name="narration"
+              required
+              [(ngModel)]="details.note"
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label>Select Bank</ion-label>
+            <ion-select 
+              placeholder="Select Bank"
+              name="bankCode"
+              [(ngModel)]="details.bankCode"
+              (ngModelChange)="selectBank()"
+              required
+            >
+            <ion-select-option 
+              *ngFor="let bank of banks"
+              value="{{bank.code}}"
+            >
+              {{bank.name}}
+            </ion-select-option>
+          </ion-select>
+          </div>
+          <div>
+            <ion-label>PIN</ion-label>
+            <ion-input 
+              type="password" 
+              placeholder="PIN"
+              name="password"
+              inputmode="numeric"
+              [(ngModel)]="details.password"
+            ></ion-input>
+          </div>
+          <div class="btn">
+            <ion-button (click)="onClick(form)" expand="block" mode="ios">
+              Withdraw
+            </ion-button>
+          </div>
+        </form>
+      </div>
+  </div>
+</ion-content>

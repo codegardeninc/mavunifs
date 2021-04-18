@@ -1,0 +1,185 @@
+<ion-content>
+  <div id="container">
+    <h3>Wallet</h3>
+    <div class="ion-text-center">      
+      <ion-card class="card-bg-primary">
+        <ion-card-content>
+          <div class="layer-1"></div>
+          <div class="layer-2">
+            <div class="layer-3">
+              <div class="layer-4"></div>
+              <small>Wallet Balance</small> <br>
+              <strong>{{balance | currency:"ZAR":'symbol':"1.2"}}</strong><small>.00</small>
+              <div class="card-footer">
+                <span>Mavunifs</span>
+                <span>
+                  VISA
+                  <img src="../../../assets/icon/mastercard_circles_icon.svg" alt="master-card">
+                </span>
+              </div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-buttons slot="start" mode="ios" class="ion-align-items-center ion-justify-content-center">
+        <ion-button (click)="onClick()" mode="ios">
+          <ion-icon slot="start" name="card"></ion-icon>
+         Top up
+        </ion-button>
+        <ion-button (click)="withdrawal()" mode="ios">
+          Withdraw
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <div class="transactions">
+      <h4>Recent Transactions</h4>
+      <ion-segment value="all" (ionChange)="segmentChanged($event)" mode="ios" class="ion-justify-content-between">
+        <ion-segment-button value="all" >
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="credit">
+          <ion-label>Credit</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="debit">
+          <ion-label>Debit</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div>        
+        <!-- All -->
+        <div *ngIf="all" class="transactions">
+          <ion-row 
+            class="{{transaction.type}} ion-align-items-center ion-justify-content-between"
+            *ngFor="let transaction of recent"
+          > 
+            <ion-col size="7">
+              <span>
+                {{transaction.type}} - {{ transaction.sub_type}} 
+                <br />payment ID: {{transaction.ref}} 
+                <small>{{transaction.created_at}}  {{transaction.transaction_time}}</small>
+              </span>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center amount">
+              {{transaction.amount | currency:"ZAR":'symbol':"1.2"}}
+            </ion-col>
+          </ion-row>
+        </div>
+        <!-- All -->
+        <!-- Credit -->
+        <div *ngIf="credit" class="transactions">
+          <ion-row 
+            class="{{transaction.type}} ion-align-items-center ion-justify-content-between"
+            *ngFor="let transaction of creditTrans"
+          > 
+            <ion-col size="7">
+              <span>
+                {{transaction.type}} - {{ transaction.sub_type}} 
+                <br /> payment ID: {{transaction.ref}} 
+                <small>{{transaction.created_at}}  {{transaction.transaction_time}}</small>
+              </span>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center amount">
+              {{transaction.amount | currency:"ZAR":'symbol':"1.2"}}
+            </ion-col>
+          </ion-row>
+        </div>
+        <!-- Credit -->
+        <!-- Debits -->
+        <div *ngIf="debit" class="transactions">
+          <ion-row 
+            class="{{transaction.type}} ion-align-items-center ion-justify-content-between"
+            *ngFor="let transaction of debitTrans"
+          > 
+            <ion-col size="7">
+              <span>
+                {{transaction.type}} - {{ transaction.sub_type}} 
+                <br /> payment ID: {{transaction.ref}} 
+                <small>{{transaction.created_at}}  {{transaction.transaction_time}}</small>
+              </span>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center amount">
+              {{transaction.amount | currency:"ZAR":'symbol':"1.2"}}
+            </ion-col>
+          </ion-row>
+        </div>
+        <!-- Debits -->
+      </div>
+      <div class="empty" [hidden]="isEmpty === true">
+        <div class="ion-row align-items-center justify-content-center">
+          <h5>No wallet transaction yet</h5>
+        </div>
+      </div>
+    </div>
+    <!-- Form -->
+    <div class="overlay" *ngIf="showForm">
+      <div class="form">
+        <div [hidden]="confirmation === true"> 
+          <form #form="ngForm" (onSubmit)="confirm(form)" >
+            <ion-buttons slot="start" class="ion-align-items-center ion-justify-content-between">
+              <h4>
+                Topup Wallet
+                <small>Enter topup amount</small>                
+              </h4>
+              <ion-button (click)="hideForm()" mode="ios">
+                Close X
+              </ion-button>
+            </ion-buttons>
+    
+            <div>
+              <div class="info" [hidden]="isTransfer === false">
+                <p>You can top up your wallet instantly by doing a transfer to this account number. Save it as a beneficiary on your banking app so you can send money to it at any time!”</p>
+                <strong>Bank:</strong> {{bankName}} <br>
+                <strong>Account number:</strong> {{accountNumber}} <br>
+              </div>
+              <ion-input 
+                type="number" 
+                placeholder="Enter Amount"
+                inputmode="numeric"
+                required
+                [(ngModel)]="details.amount"
+                name="amount"
+              ></ion-input>
+            </div>
+            <div>
+              <ion-select 
+                placeholder="Select Payment Method"
+                name="payment_method"
+                [(ngModel)]="details.payment_method"
+                (ngModelChange)="optionChange()"
+              >
+                <ion-select-option value="transfer">Bank Transfer</ion-select-option>
+                <ion-select-option value="card">Debit/Credit Card</ion-select-option>
+              </ion-select>
+            </div>
+            <div [hidden]="isCard === false">
+              <div [hidden]="cards.length > 0" class="no-card">
+                <h4>You do not have any card yet</h4>
+                <ion-button (click)="addCard()">
+                  Add a Card
+                </ion-button>
+              </div>
+              <div [hidden]="cards.length < 1">
+                <ion-select 
+                  placeholder="Select Debit Card"
+                  name="card"
+                  [(ngModel)]="details.card"
+                  (ngModelChange)="cardSelected()"
+                >
+                  <ion-select-option value="{{card.id}}" *ngFor="let card of cards">
+                    ************{{card.card_number}}
+                  </ion-select-option>
+                </ion-select>
+              </div>
+            </div>
+            <div class="btn">            
+              <ion-button (click)="confirm(form)" mode="ios" expand="block">
+                TOP UP
+              </ion-button>
+            </div>
+          </form>         
+        </div>
+      </div>
+    </div>
+    <!-- Form -->
+  </div>
+</ion-content>

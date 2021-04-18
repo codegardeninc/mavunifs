@@ -1,0 +1,85 @@
+<ion-content>
+  <div id="container">    
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+     <h3>Add Card</h3>
+     <small>Your card is automatically saved for easy and recurrent payments </small>
+
+      <div class="form">
+        <form #form="ngForm" (onSubmit)="confirm(form)">
+          <div>
+            <ion-input 
+              type="text"
+              inputmode="numeric" 
+              placeholder="Card Number"
+              required
+              name="card_number"
+              [(ngModel)]="details.cardNumber"
+              ></ion-input>
+          </div>
+          <div class="d-flex">
+            <ion-input 
+              type="number" 
+              placeholder="Expiry month (e.g 04)"
+              inputmode="numeric" 
+              required
+              maxlength='2'
+              minlength="2"
+              max=12
+              name="expiryMonth"
+              #expiryMonth
+              [(ngModel)]="details.expiryMonth"
+              (ionInput)="setAutoFocus(expiryMonth, expiryYear)"
+            ></ion-input>
+            <ion-input 
+              type="number" 
+              placeholder="Expiry year (e.g 2021)"
+              inputmode="numeric" 
+              required
+              min=2020
+              maxlength="4"
+              minlength="4"
+              #expiryYear
+              name="expiryYear"
+              [(ngModel)]="details.expiryYear"
+              (ionInput)="setAutoFocus(expiryYear, cardcvv)"
+            ></ion-input>
+          </div>
+          <div class="d-flex">
+            <ion-input 
+              type="number" 
+              placeholder="CVV"
+              inputmode="numeric" 
+              required
+              maxlength="3"
+              minlength="3"
+              name="cardcvv"
+              #cardcvv
+              [(ngModel)]="details.cardcvv"
+              (ionInput)="setAutoFocus(cardcvv, cardPin)"
+            ></ion-input>
+            <ion-input 
+              type="password" 
+              placeholder="Card PIN"
+              inputmode="numeric" 
+              required
+              #cardPin
+              maxlength="4"
+              minlength="4"
+              name="cardPin"
+              [(ngModel)]="details.cardPin"
+            ></ion-input>
+          </div>
+          <div class="btn">
+            <ion-button #btn (click)="confirm(form)" expand="block" mode="ios">
+              SUBMIT
+            </ion-button>
+          </div>
+        </form>
+      </div>
+  </div>
+</ion-content>

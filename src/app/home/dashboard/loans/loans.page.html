@@ -1,0 +1,183 @@
+<ion-content>
+ <div id="container">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <h3>Loans</h3>
+
+    <ion-segment value="loans" (ionChange)="switchPage($event)" mode="ios" class="ion-justify-content-between">
+      <ion-segment-button value="loans" >
+        <ion-label>My Loan</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="apply">
+        <ion-label>Apply</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="repay">
+        <ion-label>Repay Loan</ion-label>
+      </ion-segment-button>
+    </ion-segment> 
+
+    <!-- Loans -->
+    <div class="loans"  [hidden]="apply === true || repay === true">
+      <div class="card loan" [ngClass]="{'approved': loan.approval_status === 'approved', 'declined': loan.approval_status === 'Declined'}" *ngFor="let loan of myLoans">
+        <div class="status" [ngClass]="{'success': loan.approval_status === 'approved', 'danger': loan.approval_status === 'Declined'}">
+          {{loan.approval_status}}
+        </div>
+        <div class="m-2">
+          <h5>
+            {{loan.amount | currency:"ZAR":"symbol":"1.2"}}
+            <small>
+              To be paid back in {{loan.duration}} days with an interest of
+              <strong>{{loan.interest | currency:"ZAR":"symbol":"1.2"}}</strong>
+            </small>
+          </h5>
+        </div>
+        <div class="card-footer">
+          <span>Application Date: {{loan.request_date}}</span>
+          <span>Due Date: {{loan.due_date}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- Loans -->
+
+    <!-- Apply -->
+    <div class="apply"  [hidden]="loan === true || repay === true">  
+      <form #form="ngForm" (onSubmit)="onClick(form)">
+        <div class="card">
+          <h4>
+            Select Loan Type
+            <small>example: short term, long term</small>
+          </h4>
+          <ion-select 
+            placeholder="Select Loan Type"
+            name="loan_id"
+            [(ngModel)]="details.loan_id"
+            (ngModelChange)="selectLoan()"
+            required
+          >
+            <ion-select-option value="{{loan.id}}" *ngFor="let loan of loans">
+              {{loan.name}} - {{loan.type}}
+            </ion-select-option>
+          </ion-select>
+        </div>
+        <div class="card">
+          <h4>
+            Select Loan Amount
+            <small>Move the slider to select your loan amount</small>
+          </h4>
+          <h5>{{details.amount | currency:"ZAR":'symbol':"1.2"}}</h5>
+          <ion-range
+            mode="ios"
+            min="2000" 
+            [max]="max_amount"
+            dualKnobs="false" 
+            pin="true"
+            snaps="false" 
+            step="1"
+            ticks="true" 
+            value="0"
+            color="primary"
+            name="amount"
+            ([ngModel])="details.amount"
+            (ionChange)="rangeChange($event)"
+            required
+          >
+              <ion-label slot="start">
+                {{2000 | currency:"ZAR":'symbol':"1.2"}}
+              </ion-label>
+              <ion-label slot="end">
+                {{max_amount | currency:"ZAR":'symbol':"1.2"}}
+              </ion-label>
+          </ion-range>
+        </div>
+    
+        <div class="card">
+          <h4>
+            Select Loan Interval
+            <small>Move the slider to select loan interval</small>
+          </h4>
+          <h5>{{details.duration}} Days</h5>
+          <ion-range
+            name="duration"
+            [(ngModel)]="details.duration"
+            required
+            mode="ios"
+            min="3" 
+            [max]="max_duration"
+            dualKnobs="false" 
+            pin="true"
+            snaps="false" 
+            step="1"
+            ticks="true" 
+            value="0"
+            color="primary"
+            (ionChange)="intervalChange($event)" 
+            class="p-2"
+          >
+            <ion-label slot="start">03</ion-label>
+            <ion-label slot="end">{{max_duration}}</ion-label>
+          </ion-range>
+        </div>
+    
+        <div class="card">
+          <h5>{{details.amount + interest | currency:"ZAR":'symbol':"1.2"}}</h5>
+          <small>
+            To be paid back with an interest of <strong>{{interest | currency:"ZAR":'symbol':"1.2"}}</strong>
+          </small>
+        </div>
+    
+        <div class="btn s-btn">
+          <ion-button (click)="onClick(form)" expand="block" mode="ios">
+            Request Loan
+          </ion-button>
+        </div>
+      </form>   
+    </div>
+    <!-- Apply -->
+
+    <!-- Repayment -->
+    <div class="loans"  [hidden]="apply === true || loan === true ">
+      <form #form="ngForm" (onSubmit)="pay(form)">  
+        <div class="card loan" *ngFor="let loan of activeLoan">
+          <div class="status success">
+            Active
+          </div>
+          <div class="m-2">
+            <h5>
+              {{loan.amount | currency:"ZAR":"symbol":"1.2"}} 
+              <small>
+                To be paid back in {{loan.duration}} days with an interest of
+                <strong>{{loan.interest | currency:"ZAR":"symbol":"1.2"}}</strong>
+              </small>
+            </h5>
+          </div>
+          <div class="card-footer">
+            <span>Application Date: {{loan.request_date}}</span>
+            <span>Due Date: {{loan.due_date}}</span>
+          </div>
+        </div>    
+        <input type="hidden" name="loan_id" [(ngModel)]="details.loan_id">
+        <div class="btn btn-2">
+          <ion-button (click)="pay(form)" expand="block" mode="ios" [hidden]="activeLoan.length == 0">
+            PAY NOW
+          </ion-button> 
+        </div>
+      </form>
+    </div>
+    <!-- Repayment -->
+
+    <div class="empty" [hidden]="myLoans.length > 0 || activeLoan.length > 0 || apply === true">
+      <div class="ion-row align-items-center justify-content-center">
+        <h5>No loan data found</h5>
+        <div class="btn btn-2">
+          <ion-button (click)="getStarted()" expand="block" mode="ios" [hidden]="activeLoan.length == 0">
+           GET STARTED
+          </ion-button>
+        </div>
+      </div>
+    </div>
+ </div>
+</ion-content>

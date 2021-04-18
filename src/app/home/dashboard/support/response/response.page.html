@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons mode="ios">
+      <ion-back-button>
+      </ion-back-button>
+      <ion-button></ion-button>
+    </ion-buttons>
+    <ion-title >Support Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <div class="container"> 
+      <div class="ticket">
+        <div class="ticket-header d-flex">
+          <h5>{{ticket[0].title}}</h5>
+          <span [ngClass]="{'danger': ticket[0].status === 'pending', 'success': ticket[0].status === 'answered'}">
+            {{ticket[0].status}}
+          </span>
+        </div>
+        <div class="ticket-body">
+          <p>{{ticket[0].body}}</p>
+        </div>  
+        <div class="ticket-replies">
+          <div *ngFor="let reply of replies" class="transactions">
+            <div class="responder">
+              <span *ngIf="reply.user_id == uid">
+                <ion-icon slot="start" name="person"></ion-icon>
+                You - {{ reply.created_at }}
+              </span>
+              <span *ngIf="reply.user_id != uid">
+                <ion-icon slot="start" name="headset"></ion-icon>
+                Admin - {{ reply.created_at }}
+              </span>
+            </div>
+            <div class="reply">
+              {{ reply.body }}
+              <img src="reply.attachment" alt="attachement" *ngIf="reply.attachement != null">
+            </div>
+          </div>
+        </div> 
+        <form #form="ngForm" (onSubmit)="submit(form)" >
+          <ion-textarea name="body" ngModel [(ngModel)]="details.body" placeholder="Write message ..."></ion-textarea>
+          <!-- <div class="text-primary">
+            <label *ngIf="image.length === 0">
+              <ion-button (click)="selectImage()" fill="clear" mode="ios">
+                Attach file
+              </ion-button>
+            </label>
+          </div> -->
+          <ion-button (click)="submit(form)" expand="block" color="primary" mode="ios">
+            Send
+          </ion-button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

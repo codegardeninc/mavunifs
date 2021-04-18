@@ -1,0 +1,38 @@
+<!-- Form -->
+<div class="overlay">
+  <div class="form">
+    <form #form="ngForm" (onSubmit)="accept(form)">
+      <div>          
+        <ion-buttons slot="end" class="ion-align-items-center right">
+          <ion-button (click)="reject()" mode="ios">
+            Close X
+          </ion-button>
+        </ion-buttons>
+         <br>
+        <h4>
+          <small>
+            {{message}}
+          </small>
+        </h4>
+        <!-- <p>{{message}}</p> -->
+        <div>
+          <ion-input 
+            type="text" 
+            inputmode="numeric"
+            [placeholder]="placeholder"
+            [(ngModel)]="inputvalue"
+            name="inputvalue" 
+          ></ion-input>
+        </div>
+        <div class="btn btn-2">            
+          <ion-button (click)="accept(form)" mode="ios" expand="block">
+            CONFIRM 
+          </ion-button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</div>
+<!-- Form -->

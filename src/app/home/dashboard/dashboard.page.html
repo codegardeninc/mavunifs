@@ -1,0 +1,128 @@
+<ion-content>
+  <div id="container">
+    <ion-buttons slot="start" class="ion-justify-content-between ion-align-items-center">
+      <div  class="d-flex ion-align-items-center ion-justify-content-between">
+        <ion-avatar class="avatar" (click)="profile()">
+          <img src="{{image}}"/>
+        </ion-avatar>
+        <span (click)="profile()">
+          <h6>Hello, <strong>{{details.last_name}}</strong></h6>
+          <div class="details">            
+            <ion-icon name="person-circle"></ion-icon>
+            <small>
+              Mavunifs {{accountNumber}}
+            </small>          
+          </div>
+        </span>
+      </div>
+      <ion-button (click)="notifications()">
+        <div class="notification">
+          <ion-icon slot="start" name="notifications"></ion-icon>
+          <ion-badge color="danger" mode="ios" [hidden]="notification_count == 0 || notification_count === undefined">
+            {{notification_count}}
+          </ion-badge>
+        </div>
+      </ion-button>
+    </ion-buttons>
+  </div>
+    <div id="slides" class="slides">
+      <ion-slides mode="ios" [options]="slideOpt">
+        <ion-slide>
+          <ion-card class="card-bg-primary">
+            <ion-card-content>
+              <div class="layer-1"></div>
+              <div class="layer-2">
+                <div class="layer-3">
+                  <div class="layer-4"></div>
+                  <small>Networth</small> <br>
+                  <strong >{{networth | currency:"ZAR":"symbol":"1.2"}}</strong><small [hidden]="!showLoading"> <br />Loading
+                    <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+                  </small>
+                  <div class="card-footer">
+                    <span class="Mavunifs-sm">Mavunifs</span>
+                    <span>
+                      
+                      <span class="mavunifs-sm" (click)="refreshBalances()">Refresh</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card> 
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="card-bg-secondary card" (click)="wallet()">
+            <ion-card-content>
+              <div class="ion-text-center layer">                
+                <small>Wallet Balance</small> <br>
+                <strong>{{balance | currency:"ZAR":"symbol":"1.2"}}</strong>
+              </div>
+              <div class="card-footer">
+                <span class="Mavunifs-sm">Mavunifs</span>
+                <span>
+                  Wallet
+                </span>
+              </div>
+              <div class="bg-overlay-1"></div>
+              <div class="bg-overlay-2"></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="card-bg-secondary card" (click)="savings()">
+            <ion-card-content>
+              <div class="ion-text-center layer">                
+                <small>Total Savings</small> <br>
+                <strong>{{savings_balance | currency:"ZAR":"symbol":"1.2"}}</strong>
+              </div>
+              <div class="card-footer">
+                <span class="mavunifs-sm">mavunifs</span>
+                <span >
+                  Savings
+                </span>
+              </div>
+              <div class="bg-overlay-1"></div>
+              <div class="bg-overlay-2"></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+  <div id="container">
+    <div class="services">
+      <h4>Services</h4>
+      <div class="ion-justify-content-center d-flex ion-align-items-start">        
+        <div class="service" (click)="onClick('loan')">
+          <ion-img slot="start" src="assets/imgs/loan.png" size="large"></ion-img> <br>
+          Request Loan
+        </div>
+        <div class="service" (click)="onClick('bills')">
+          <ion-img slot="start" src="assets/imgs/bill-payment.png" size="large"></ion-img> <br>
+          Bills Payment
+        </div>
+        <div class="service" (click)="onClick('investment')">
+          <ion-img slot="start" src="assets/imgs/money.png" size="large"></ion-img> <br>
+          Investment Platform
+        </div>
+      </div>
+    </div>
+    <div class="banners">
+      <h4>Get started</h4>
+      <div class="banner banner-bg-1" (click)="investment()">
+        <div class="banner-overlay">          
+          <p>
+            Invest on various plans and wait for your income
+          </p>
+        </div>
+      </div>
+      <div class="banner banner-bg-2" (click)="savings()">
+        <div class="banner-overlay">          
+          <p>
+            Save more and get <br> 3% interest
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

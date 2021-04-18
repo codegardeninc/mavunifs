@@ -1,0 +1,100 @@
+<ion-content>
+  <div id="container">
+    <ion-buttons slot="start">
+      <ion-button mode="ios" (click)="goBack()">
+        <ion-icon name="chevron-back" slot="start"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <!-- Show input to enter referral code -->
+    <div class="enter-code" *ngIf="enterCode">
+      <ion-card class="card-bg-purple">
+        <ion-card-content class="content2">
+          <div class="ion-text-center layer">                
+            <small>If You were invited, enter the referral code below</small> <br>
+
+            <ion-input 
+              type="text" 
+              placeholder="Enter Referral Code "
+              name="refcode"
+              required
+              [(ngModel)]="referralEnteredCode"
+            ></ion-input>
+
+          </div>
+          <div class="card-footer">
+            <div class="button-submit">
+              <ion-button (click)="submitRefCode()"> Submit </ion-button>
+            </div >
+            <span>
+              <ion-button color="light" fill="outline" size="small" (click)="showReferralBox()"> Back </ion-button>
+            </span>
+          </div>
+          <div class="bg-overlay-1"></div>
+          <div class="bg-overlay-2"></div>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+
+    <!-- show referral msgs and balances -->
+    <div class="refer" *ngIf="refer">
+
+      <div class="m-2">
+        <h3>Refer and earn</h3>
+        <small>You can refer as many people as you can and earn money with us through this.</small>
+      </div>
+      <ion-card class="card-bg-purple">
+        <ion-card-content>
+          <div class="ion-text-center layer">                
+            <small>Referral Earnings</small> <br>
+            <h1>{{ balance | currency:"ZAR":"symbol":"1.2" }}</h1>
+          </div>
+          <div class="card-footer">
+            <span class="mavunifs-sm"></span>
+            <span>
+              <img src="../../../assets/icon/mastercard_circles_icon.svg" alt="master-card">
+            </span>
+          </div>
+          <div class="bg-overlay-1"></div>
+          <div class="bg-overlay-2"></div>
+        </ion-card-content>
+      </ion-card>
+      
+      <div class="banners">
+        <div class="banner banner-bg-2">
+          <div class="banner-overlay">          
+            <p>
+              Refer a friend and earn up to <br> ZAR1,000 per referral. 
+            </p>
+          </div>
+        </div>
+        <h4>Referral Message</h4>
+        <div class="banner banner-bg-1">
+          <p>
+            <small>
+              {{text}}
+            </small>
+          </p>
+        </div>
+        <div class="ion-text-center d-flex ion-align-items-center ion-justify-content-center">
+          <ion-button mode="ios" fill="clear" (click)="copy()">
+            <small>Copy link</small>
+          </ion-button>
+          <ion-button (click)="shareGeneric()" mode="ios" fill="clear">
+            <small>Share</small>
+          </ion-button>
+        </div>
+        <div class="referral-exists" *ngIf="!referralExists">
+          <h4>Claim Signup Bonus </h4>
+          <div class="banner banner-bg-2">
+             <p> <small color="light">
+                If you have a referral code, <a (click)="showReferCode()" >click here </a> to submit the code. You and your referral will get rewarded up to ZAR100 when you carry out your first transaction
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

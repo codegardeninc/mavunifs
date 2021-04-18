@@ -1,0 +1,168 @@
+<ion-content>
+  <div id="container">
+    <h3>Wallet</h3>
+    <div class="ion-text-center">      
+      <ion-card class="card-bg-primary">
+        <ion-card-content>
+          <div class="layer-1"></div>
+          <div class="layer-2">
+            <div class="layer-3">
+              <div class="layer-4"></div>
+              <small>Wallet Balance</small> <br>
+              <strong>N78,000</strong><small>.00</small>
+              <div class="card-footer">
+                <span>Mavunifs</span>
+                <span>
+                  VISA
+                  <img src="../../../assets/icon/mastercard_circles_icon.svg" alt="master-card">
+                </span>
+              </div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-buttons slot="start" mode="ios" class="ion-align-items-center ion-justify-content-center">
+        <ion-button (click)="onClick()" mode="ios">
+          <ion-icon slot="start" name="card"></ion-icon>
+         Top up
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <div class="transactions">
+      <h4>Wallet Transactions</h4>
+      <ion-segment value="all" (ionChange)="segmentChanged($event)" mode="ios" class="ion-justify-content-between">
+        <ion-segment-button value="all" >
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="credit">
+          <ion-label>Credit</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="debit">
+          <ion-label>Debit</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div>        
+        <ion-row class="credit ion-align-items-center ion-justify-content-between"> 
+          <ion-col size="7">
+            <span>
+              Credit card deposit 
+              <br />payment ID: 9354520984
+              <small>20 Monday June, 08:04:20 GMT</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            N23,000.00
+          </ion-col>
+        </ion-row>
+        <ion-row class=" credit ion-align-items-center ion-justify-content-between"> 
+          <ion-col size="7">
+            <span>
+              Credit card deposit 
+              <br />payment ID: 9354520984
+              <small>20 Monday June, 08:04:20 GMT</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            N23,000.00
+          </ion-col>
+        </ion-row>
+        <ion-row class=" debit ion-align-items-center ion-justify-content-between"> 
+          <ion-col size="7">
+            <span>
+              Debit wallet debit 
+              <br />payment ID: 9354520984 
+              <small>20 Monday June, 08:04:20 GMT</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            N23,000.00
+          </ion-col>
+        </ion-row>
+        <ion-row class="credit ion-align-items-center ion-justify-content-between"> 
+          <ion-col size="7">
+            <span>
+              Credit card deposit 
+              <br />payment ID: 9354520984
+              <small>20 Monday June, 08:04:20 GMT</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            N23,000.00
+          </ion-col>
+        </ion-row>
+        <ion-row class="credit ion-align-items-center ion-justify-content-between"> 
+          <ion-col size="7">
+            <span>
+              Credit card deposit 
+              <br />payment ID: 9354520984 
+              <small>20 Monday June, 08:04:20 GMT</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            N23,000.00
+          </ion-col>
+        </ion-row>
+        <ion-row class="credit ion-align-items-center ion-justify-content-between"> 
+          <ion-col size="7">
+            <span>
+              Credit card deposit (payment ID: 9354520984) 
+              <small>20 Monday June, 08:04:20 GMT</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            N23,000.00
+          </ion-col>
+        </ion-row>
+        <ion-row class="credit ion-align-items-center ion-justify-content-between"> 
+          <ion-col size="7">
+            <span>
+              Credit card deposit (payment ID: 9354520984) 
+              <small>20 Monday June, 08:04:20 GMT</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            N23,000.00
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div class="overlay" *ngIf="showForm">
+      <div class="form">
+        <div *ngIf="show">          
+          <ion-buttons slot="start" class="ion-align-items-center ion-justify-content-between">
+            <h4>Top Up Wallet</h4>
+            <ion-button (click)="hideForm()" mode="ios">
+              Close X
+            </ion-button>
+          </ion-buttons>
+    
+          <div>
+            <ion-input type="text" placeholder="Enter Amount"></ion-input>
+          </div>
+          <div>
+            <ion-select placeholder="Select Payment Method">
+              <ion-select-option value="Bank Transfer">Bank Transfer</ion-select-option>
+              <ion-select-option value="Debit/Credit Card">Debit/Credit Card</ion-select-option>
+            </ion-select>
+          </div>
+          <div class="btn">
+            <ion-button (click)="creditWallet()" mode="ios" expand="block">
+              TOP UP
+            </ion-button>
+          </div>
+        </div>
+        <div *ngIf="transactionSuccess" >
+          <ion-button (click)="hideForm()" class="right" fill="clear" mode="ios">
+            Close X
+          </ion-button>
+          <div class="clear"></div>
+          <div class="success">            
+            <img src="../../../../../assets/imgs/check.png" alt="success"> <br>
+            <h3>Transaction Successful</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

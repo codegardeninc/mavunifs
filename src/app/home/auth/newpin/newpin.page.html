@@ -1,0 +1,41 @@
+<ion-content>
+  <div id="container">
+    <form #form="ngForm" (onSubmit)="resetPin(form)">        
+      <div class="ion-text-center"> 
+        <h3>
+         Create New PIN
+         <p>
+          Choose a 6-digit private PIN to secure your account
+        </p>
+        </h3>
+        <div class="icon">
+          <img src="../../../../assets/imgs/lock.png" alt="">
+        </div>
+      </div>
+      <div>
+        <ion-label class="label">Reset Code</ion-label>
+        <ion-input 
+          placeholder="Enter Reset Code" 
+          type="text" 
+          inputmode="numeric" 
+          name="code" 
+          [(ngModel)]="details.otp"
+          maxlength="6"
+          minlength="6"
+        ></ion-input>
+      </div>
+      <div>
+        <ion-label class="label">Enter PIN</ion-label>
+        <ion-input minlength="6" placeholder="Enter PIN" type="text" inputmode="numeric" name="password" [(ngModel)]="details.pin"></ion-input>
+      </div>
+      <div>
+        <ion-label class="label">Confirm PIN</ion-label>
+        <ion-input minlength="6" placeholder="Confirm PIN" type="text" inputmode="numeric" name="confirm_pin" [(ngModel)]="details.confirm_pin"></ion-input>
+      </div>
+      <ion-button (click)="resetPin(form)" expand="block" mode="ios">
+        CONFIRM
+      </ion-button>
+      <small (click)="goBack()">Back to Login</small>
+    </form>     
+  </div>
+</ion-content> 

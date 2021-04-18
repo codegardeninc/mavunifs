@@ -1,0 +1,28 @@
+<div class="overlay">
+  <div class="form">
+    <!-- Confirmation  -->
+    <div >
+      <ion-buttons class="right">            
+        <ion-button (click)="closeModal()"  fill="clear" mode="ios">
+          Close X
+        </ion-button>
+      </ion-buttons>
+      <div class="clear"></div>
+      <div class="ion-text-center m-3"> 
+        
+        <div class="img">
+          <img [src]="display_photo" alt="" width="200" class="img-fluid">
+          <span class="message">
+            {{message}}
+          </span>
+        </div>         
+        <div class="btn">
+          <ion-button (click)="closeModal()" expand="block" mode="ios">
+            CLOSE
+          </ion-button>
+        </div> 
+      </div>
+    </div>
+    <!-- Confirmation -->
+  </div>
+</div>

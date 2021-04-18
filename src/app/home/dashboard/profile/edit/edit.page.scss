@@ -1,0 +1,160 @@
+#container {
+	padding: 30px 20px;
+	height: 100%;
+
+	h3 {
+		color: var(--ion-color-primary);
+		font-size: 18px;
+		margin: 0;
+		//margin: 0px 0px 20px 0px;
+		font-family: 'Poppins';
+
+		p {
+			font-size: 12px;
+			color: #8c8c8c;
+			padding-top: 0px !important;
+		}
+	}
+}
+
+// .edit {
+//   margin: 30px auto;
+// }
+
+#container strong {
+	font-size: 20px;
+	line-height: 26px;
+}
+
+#container p {
+	font-size: 16px;
+	line-height: 22px;
+
+	color: #8c8c8c;
+
+	margin: 0;
+}
+
+#container a {
+	text-decoration: none;
+}
+
+.border-primary {
+	border: solid 1px var(--ion-color-primary);
+}
+
+.brand {
+	padding: 30px;
+}
+
+.buttons {
+	padding: 30px 0px;
+}
+
+ion-input {
+	--background: #f2f2f2;
+	--placeholder-font-style: initial;
+	--placeholder-font-weight: initial;
+	--placeholder-opacity: 0.5;
+	--padding-top: 15px;
+	--padding-bottom: 15px;
+	border-radius: 6px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+
+.label {
+	padding: 30px 10px !important;
+	font-size: 12px;
+	// font-family: 'Poppins';
+	font-weight: normal;
+}
+
+.avatar {
+	border-radius: 50%;
+	max-width: 86px;
+	max-height: 86px;
+	min-width: 86px;
+	min-height: 86px;
+	margin: 30px auto 15px auto;
+	position: relative;
+	// border: solid 1px var(--ion-color-primary);
+
+	img {
+		border-radius: 50%;
+		//width: 100%;
+		max-width: 86px;
+		max-height: 86px;
+		min-width: 86px;
+		min-height: 86px;
+	}
+
+	ion-button {
+		--background: #ffffff;
+		--color: #000000;
+		--border-radius: 50%;
+		position: absolute;
+		bottom: 10px;
+		right: -9px;
+		height: 30px;
+		width: 30px;
+		--padding-bottom: 0;
+		--padding-end: 0;
+		--padding-start: 0;
+		--padding-top: 0;
+
+		ion-icon {
+			font-size: 14px;
+		}
+	}
+}
+
+.btn {
+	margin-top: 5vh;
+	ion-button {
+		--background: linear-gradient(270deg, #0089cf 0%, #ad2a86 100%);
+		--background-activated-opacity: 1;
+		--background-hover-opacity: 1;
+		--border-radius: 6px;
+		--color: #ffffff;
+		--opacity: 1;
+		--padding-top: 4px;
+		--padding-bottom: 4px;
+		min-height: 48px;
+		font-family: 'Avenir';
+		margin: 20px auto;
+	}
+}
+
+.l-btn {
+	border: solid 1px var(--ion-color-primary);
+	border-radius: 6px;
+}
+
+h5 {
+	color: #77869e;
+	font-family: 'Avenir';
+	font-size: 13px;
+	font-weight: 900;
+	letter-spacing: 0.63px;
+	line-height: 18px;
+	margin-top: 26px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+ion-buttons {
+	margin-top: 15px;
+	padding-top: 8px !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	ion-button {
+		height: auto !important;
+		font-size: 18px;
+		font-family: "Poppins";
+	}
+	//margin: 0 auto;
+}

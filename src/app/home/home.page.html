@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div class="brand">
+      <img src="assets/imgs/logo.png" alt="logo">
+    </div>
+    <div class="slides" id="slides">
+      <ion-slides mode="ios" pager="ios">
+        <ion-slide>
+          <div>          
+            <img src="assets/imgs/slide1.png" alt="wallet">   
+            <p class="slide-title">Top up your wallet and make several payments</p>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="slide-sm">            
+            <img src="assets/imgs/slide2.png" alt="invest"> 
+            <p class="slide-title">Easy for you to invest and take loan to achieve goals</p>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div>
+            <img src="assets/imgs/save.png" alt="wallet">   
+            <p class="slide-title">Save towards your goal and plan your finance</p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div class="buttons">      
+      <ion-button (click)="gotoPage('signup')" expand="block" mode="ios">
+        Get Started
+      </ion-button>
+      <div class="btn">
+        <ion-button (click)="gotoPage('login')" expand="block" class="border-primary" mode="ios">
+          Log in
+        </ion-button> 
+      </div>
+    </div>
+  </div>
+</ion-content>

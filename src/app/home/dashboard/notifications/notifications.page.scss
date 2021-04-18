@@ -1,0 +1,83 @@
+#container {
+  padding: 20px 30px;
+  height: 100%;
+  position: relative;
+  font-family: 'Poppins';
+
+  h3 {
+    height: 28px;
+    width: 182px;
+    color: var(--ion-color-primary);
+    font-family: "Poppins";
+    font-size: 23px;
+    letter-spacing: 0.45px;
+    line-height: 28px;
+    margin: 10px 0px 10px 0px;
+
+    p {
+      font-size: 12px;
+      color: #8c8c8c;
+      padding-top: 0px !important;
+    }
+  }
+}
+
+
+ion-buttons {
+  margin: 20px 0 10px 0;
+  ion-button {
+    --opacity: 1;
+    --padding-end: 0px;
+    --padding-start: 0px;
+    --background-hover: transparent;
+    margin: 0;
+    font-family: 'Poppins';
+    font-style: normal;
+    height: 19px;
+    --color: var(--ion-color-primary);
+    font-size: 13px;
+    letter-spacing: 0.16px;
+    line-height: 20px;
+    text-align: center;
+    margin-left: -7px !important;    
+    
+  }
+}
+
+ion-item {
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+  font-family: 'Poppins';
+ h5 {
+   margin: 0;
+   color: var(--ion-color-primary);
+   font-size: 14px;
+ }
+
+ span {
+   padding-bottom: 8px;
+ }
+
+}
+
+ion-item-option {
+  width: 100px;
+  border-bottom: none !important;
+  --color: #ffffff;
+}
+
+ion-item-sliding {
+  margin: 20px 0;
+}
+
+.segment-button-checked{
+  background: linear-gradient(90deg, var(--ion-color-primary) 0%, #003679 157.2%);
+  margin: 0px !important;
+  padding: 0;
+
+  ion-label {
+    color: #ffffff;
+  }
+}

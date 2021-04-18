@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Cable Tv</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container"> 
+    <div class="e-form">
+      <form #form="ngForm" (onSubmit)="onClick(form)">    
+        <div> 
+          <div lines="none">
+            <input type="hidden" name="service" ngModel [(ngModel)]="details.service">
+            <ion-input 
+              name="smartCardNo" 
+              required=true
+              inputmode="numeric"
+              ngModel 
+              [(ngModel)]="details.smartCardNo"
+              placeholder="Smart Card number" 
+              type="text"             >
+            </ion-input>
+          </div> 
+                 
+          <div lines="none" *ngIf="details.smartCardNo">
+            <ion-select
+              placeholder="Select Service Provider" 
+              name="type" 
+              [(ngModel)]="details.type" 
+              (ngModelChange)="getAllSubscriptionPlans()"             >
+              <ion-select-option value="{{service.name}}" *ngFor="let service of operators">
+                {{service.name}}
+              </ion-select-option>
+            </ion-select>
+          </div>
+
+          <div lines="none" [hidden]="isStarTimes === true" *ngIf="subscriptionPlans.length > 0">
+            <ion-select 
+              placeholder="Select a plan"
+              name="productCode" 
+              [(ngModel)]="details.productCode" 
+              (ngModelChange)="getSelectedPlanDetails()"
+              >
+              <ion-select-option 
+                *ngFor="let plan of subscriptionPlans" 
+                value="{{plan.PACKAGE_ID}}"
+              > 
+              {{plan.PACKAGE_NAME}}             
+              </ion-select-option>
+            </ion-select>
+          </div>
+          <input type="hidden" name="serviceId" [(ngModel)]="details.serviceId" value="{{details.serviceId}}">
+          
+          <div lines="none" [hidden]="isStarTimes === false">
+            <ion-input name="amount" [(ngModel)]="details.amount" placeholder="Amount" type="number" inputmode="numeric"></ion-input>
+          </div>
+    
+          <div class="ion-text-center" *ngIf="details.productCode || details.amount">
+            <ion-button color="primary" expand="block" (click)="onClick(form)" mode="ios">
+              NEXT
+            </ion-button>
+          </div>
+        </div>   
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+

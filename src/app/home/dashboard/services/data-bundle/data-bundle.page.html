@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Internet Bundles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container"> 
+    <div class="e-form">
+      <form #form="ngForm" (onSubmit)="onClick(form)">
+        <div lines="none">
+          <ion-select 
+          placeholder="Select Service Provider"
+            class="select-options" 
+            name="type"  
+            mode="md" 
+            [(ngModel)]="details.type" 
+            (ngModelChange)="onChange()"
+          >
+            <ion-select-option *ngFor="let service of operators" value="{{service.name}}">
+              {{service.name}}
+            </ion-select-option>
+          </ion-select>          
+          <input type="hidden" name="service" required=true [(ngModel)]="details.service">
+        </div>
+
+        <div lines="none" [hidden]="isSmile === false">
+          <ion-input name="account" inputmode="numeric" (ionBlur)="getDataPlans()" [(ngModel)]="details.account" placeholder="Account number" type="text" >
+          </ion-input>
+        </div>
+
+        <div lines="none" [hidden]="isSmile === true">
+          <ion-select 
+            placeholder="Select Amount"
+            name="amount" 
+            class="select-options"  
+            [(ngModel)]="details.amount" 
+            mode="md"
+          >
+            <ion-select-option  *ngFor="let bundle of bundles"  value="{{bundle.price}}">
+              ₦{{bundle.price}}
+            </ion-select-option>
+          </ion-select>
+        </div>
+
+        <div lines="none" [hidden]="isSmile === false">
+          <ion-select 
+            name="bundle" 
+            class="select-options"  
+            [(ngModel)]="details.bundle" 
+            mode="md"
+            (ngModelChange)="getPlanDetails()"
+          >
+            <ion-select-option  *ngFor="let bundle of bundles"  value="{{bundle.allowance}}">
+              ₦{{bundle.price}} - {{bundle.allowance}} {{bundle.validity}}
+            </ion-select-option>
+          </ion-select>
+        </div>
+    
+        <div lines="none" [hidden]="isSmile === true">
+          <ion-input name="pinNo" inputmode="numeric" [(ngModel)]="details.pinNo" placeholder="PIN number" type="text" ></ion-input>
+        </div>
+  
+        <div class="ion-text-center">      
+          <ion-button expand="block" (click)="onClick(form)" mode='ios'>
+            NEXT
+          </ion-button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</ion-content>
+
+

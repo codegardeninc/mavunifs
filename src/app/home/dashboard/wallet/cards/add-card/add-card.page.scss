@@ -1,0 +1,142 @@
+#container {
+	padding: 50px 20px;
+	font-family: 'Poppins';
+	position: relative;
+	height: 100%;
+
+	h3 {
+		margin: 15px 0px 15px 0px;
+		color: #0b4db1;
+		font-family: "Poppins";
+		font-size: 23px;
+		letter-spacing: 0.45px;
+		line-height: 28px;
+
+		p {
+			font-size: 12px;
+			color: #8c8c8c;
+			padding-top: 0px !important;
+		}
+	}
+}
+
+ion-buttons {
+	margin: 0px 0 10px 0;
+	ion-button {
+		--opacity: 1;
+		--padding-end: 0px;
+		--padding-start: 0px;
+		margin: 0;
+		font-family: 'Poppins';
+		font-style: normal;
+		height: 19px;
+		--color: #09419e;
+		font-size: 13px;
+		letter-spacing: 0.16px;
+		line-height: 20px;
+		margin-left: -7px !important;
+	}
+}
+
+.btn {
+	ion-button {
+		--background: linear-gradient(270deg, #de0623 0%, #cd7d04 100%);
+		--background-activated: #cd7d04;
+		--background-activated-opacity: 1; //#0B4DB1 0E5ECA
+		--background-hover-opacity: 1;
+		--background-hover: transparent;
+		--border-radius: 6px;
+		--color: #ffffff;
+		--color-activated: #ffffff;
+		--color-focused: #ffffff;
+		--color-hover: #ffffff;
+		--opacity: 1;
+		--padding-top: 4px;
+		--padding-bottom: 4px;
+		min-height: 48px;
+		font-family: 'Avenir';
+		margin: 20px auto;
+		text-transform: uppercase;
+	}
+}
+
+ion-select {
+	--padding-end: 8px;
+	--padding-start: 8px;
+	--placeholder-color: #000000 !important;
+	--placeholder-color-opacity: 1;
+	margin: 4px auto;
+	font-size: 12px;
+	font-family: 'Poppins';
+	box-sizing: border-box;
+	height: 52px;
+	//width: 327px;
+	border: 2px solid #f3f3f3;
+	border-radius: 6px;
+	background-color: #f5f6fb;
+}
+
+ion-input {
+	margin: 8px auto;
+	font-size: 12px;
+	font-family: 'Poppins';
+	box-sizing: border-box;
+	height: 52px;
+	//width: 327px;
+	border: 2px solid #f3f3f3;
+	border-radius: 6px;
+	--background: #f5f6fb;
+}
+
+ion-label {
+	color: #000000;
+	font-family: "Poppins";
+	font-size: 12px;
+	letter-spacing: 0;
+	line-height: 16px;
+	text-align: justify;
+}
+
+strong {
+	color: #0e5dc9;
+	font-family: 'Poppins';
+	font-size: 47px;
+	font-weight: bold;
+	letter-spacing: 0;
+	line-height: 70px;
+}
+
+h6 {
+	color: #0e5dc9;
+	font-family: "Poppins";
+	font-size: 16px;
+	letter-spacing: 0;
+	line-height: 25px;
+	margin: 0;
+}
+
+.card {
+	margin: 20px auto;
+}
+
+.d-flex {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	:first-child {
+		margin-right: 10px;
+	}
+
+	:last-child {
+		margin-left: 10px;
+	}
+}
+
+.form {
+	margin: 30px 0;
+}
+
+small {
+	color: #333333;
+}

@@ -1,0 +1,48 @@
+<ion-content>
+  <div id="container">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button> 
+    </ion-buttons>
+    <div class="ion-text-center">      
+      <h3>
+       Create PIN
+        <p>
+          This is a 6-digit private PIN to secure your account
+          and should never be disclosed to anyone.
+        </p>
+      </h3>
+      <div class="icon">
+        <img src="../../../../assets/imgs/lock.png" alt="lock">
+      </div>
+      <p *ngIf="errorMsg" class="error-msg">
+        {{errorMsg}}
+      </p>
+    </div>
+    <div>
+      <ion-label class="label">Enter PIN</ion-label>
+      <ion-input 
+        [(ngModel)]="pin"
+        inputmode="numeric"
+        minlength=6 maxlength=6
+        style="-webkit-text-security:disc;"
+        name="pin" placeholder="Enter PIN">
+      </ion-input>
+    </div>
+    <div>
+      <ion-label  class="label">Confirm PIN</ion-label>
+      <ion-input 
+        [(ngModel)]="pin2"
+        inputmode="numeric"
+        minlength=6 maxlength=6
+        style="-webkit-text-security:disc;"
+        name="pin" placeholder="Confirm PIN">
+      </ion-input>
+    </div>
+    <ion-button (click)="onClick()" expand="block" mode="ios">
+      PROCEED
+    </ion-button>
+  </div>
+</ion-content> 

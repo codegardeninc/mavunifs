@@ -1,0 +1,8 @@
+{
+  "name": "Mavunifs",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

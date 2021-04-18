@@ -1,0 +1,24 @@
+<div class="overlay">
+  <div class="form">
+    <!-- transaction success  -->
+    <div>
+      <ion-buttons class="right">            
+        <ion-button (click)="closeModal()"  fill="clear" mode="ios">
+          Close X
+        </ion-button>
+      </ion-buttons>
+      <div class="clear"></div>
+      <div class="ion-text-center">      
+        <div class="success">
+          <img src="../../../../assets/imgs/check.png" alt="success">
+        </div>      
+        <h3>{{title}}</h3>
+        <span>
+          {{creditToken}}
+        </span>
+        <!-- <h3>Transaction Successful</h3> -->
+      </div>
+    </div>
+    <!-- Transaction success -->
+  </div>
+</div>

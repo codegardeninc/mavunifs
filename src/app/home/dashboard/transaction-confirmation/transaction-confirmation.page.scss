@@ -1,0 +1,104 @@
+ 
+.overlay {
+	height: 100%;
+	background-color: rgba(#000000, 0.2);
+}
+
+.form {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	//height: 534px;
+	z-index: 3;
+	font-family: 'Poppins';
+	padding: 10px 30px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 45px 0 rgba(129, 129, 129, 0.31);
+
+	ion-buttons {
+		margin: 0;
+		ion-button {
+			--border-style: none !important;
+			--background-hover: transparent;
+			box-shadow: none !important;
+			color: #000000;
+			font-weight: normal;
+			font-family: 'Poppins';
+			font-size: 15px;
+			letter-spacing: 0.29px;
+			line-height: 28px;
+		}
+	}
+
+	h4 {
+		small {
+			display: block;
+			color: #000000;
+			font-family: 'Poppins';
+			font-size: 12px;
+			letter-spacing: 0.23px;
+			line-height: 28px;
+		}
+	}
+
+	.btn {
+		ion-button {
+			--background: linear-gradient(270deg, #0089cf 0%, #ad2a86 100%);
+			--background-activated: #3880ff;
+			--background-activated-opacity: 1; //#0B4DB1 0E5ECA
+			--background-hover-opacity: 1;
+			--background-hover: transparent;
+			--border-radius: 6px;
+			--color: #ffffff;
+			--color-activated: #ffffff;
+			--color-focused: #ffffff;
+			--color-hover: #ffffff;
+			--opacity: 1;
+			--padding-top: 4px;
+			--padding-bottom: 4px;
+			max-width: 327px;
+			min-height: 48px;
+			font-family: 'Avenir';
+			margin: 15px auto !important;
+		}
+	}
+
+	h3 {
+		color: #0b4db1;
+		font-family: "Poppins";
+		font-size: 19px;
+		letter-spacing: 0.37px;
+		line-height: 28px;
+		text-align: center;
+	}
+}
+
+.forms {
+	z-index: 2;
+}
+
+.btn-black {
+	ion-button {
+		--background: linear-gradient(270deg, #000000 0%, #333333 100%) !important;
+		font-family: 'Avenir';
+		margin: 50px auto 20px auto !important;
+	}
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+h1 {
+	color: #0b4db1;
+}
+
+.info {
+	display: block;
+}

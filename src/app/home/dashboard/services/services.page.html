@@ -1,0 +1,70 @@
+<ion-content>
+  <div id="container">    
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+     <h3>Pay bills</h3>
+    <div class="services">
+    <ion-searchbar 
+      placeholder="Search here" 
+      inputmode="decimal" 
+      type="decimal" 
+      (ionChange)="onSearchChange($event)"
+      [debounce]="250"         
+    >
+    </ion-searchbar>
+    </div>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="5" class=" box" (click)="gotoService(category.type)" *ngFor="let category of searchResults">
+        <img src="{{category.logo}}" alt="bills">
+         <br>
+        <span>
+          {{category.name}}
+        </span>
+      </ion-col>
+      <!-- <ion-col size="5" class=" box" (click)="gotoService('cable-tv')">
+        <img src="../../../../assets/icon/cable_tv_icon.svg" alt="bills">
+        <br>
+        <span>
+          Cable TV
+        </span>
+      </ion-col> -->
+    </ion-row>
+
+    <!-- <ion-row class="ion-justify-content-between">
+      <ion-col size="5" class=" box" (click)="gotoService('mobile-data')">
+        <img src="../../../../assets/icon/data_bundles_icon.svg" alt="bills"> <br>
+        <span>
+          Mobile Data
+        </span>
+      </ion-col>
+      <ion-col size="5" class=" box" (click)="gotoService('data-bundle')">
+        <img src="../../../../assets/icon/international_topup_icon.svg" alt="bills"> <br>
+        <span>
+          Internet Data Bundle
+        </span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="5" class=" box" (click)="gotoService('mobile-airtime')">
+        <img src="../../../../assets/icon/mobile_airtime_icon.svg" alt="bills"> <br>
+        <span>
+          Airtime Topup
+        </span>
+      </ion-col>
+      <ion-col size="5" class=" box" (click)="gotoService('exam')">
+        <img src="../../../../assets/icon/graduation-cap-1.svg" alt="bills"> <br>
+        <span>
+          WAEC/NECO Result checker PIN
+        </span>
+      </ion-col>
+    </ion-row> -->
+    
+  </div>
+</ion-content>
+

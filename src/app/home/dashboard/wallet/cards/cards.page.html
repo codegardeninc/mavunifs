@@ -1,0 +1,156 @@
+<ion-content>
+  <div id="container">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <h3>My Card</h3>
+    <div class="ion-text-center card-buttons">      
+      <div class="slides">
+        <ion-slides mode="ios" [options]="slideOptions"> 
+          <ion-slide *ngFor="let card of cards">    
+            <div class="slide">              
+              <ion-card class="card-bg-secondary">
+                <ion-card-content>
+                  <div class="ion-text-left">
+                    <img src="../../../assets/icon/mastercard_circles_icon.svg" alt="master-card">
+                  </div>
+        
+                  <small>{{first_name}} {{last_name}}</small>
+                 
+                  <div class="card-footer">
+                    <span>••••</span>
+                    <span>••••</span>
+                    <span>••••</span>
+                    <span>{{card.card_number}}</span>
+                  </div>
+                  <div class="bg-overlay-1"></div>
+                  <div class="bg-overlay-2"></div>
+                </ion-card-content>
+              </ion-card>
+              <ion-buttons slot="start" class="card-btn">
+                <ion-button (click)="setDefaultCard(card.id)" [hidden]="card.is_default == 1">
+                  <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+                  Make default
+                </ion-button>
+                <ion-button (click)="setDefaultCard(card.id)" [hidden]="card.is_default == 0">
+                  <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                  Default card
+                </ion-button>
+                <ion-button (click)="confirmation(card.id)" class="danger"> 
+                  <ion-icon slot="end" name="trash"></ion-icon>
+                  Remove card
+                </ion-button>
+              </ion-buttons>
+            </div>        
+          </ion-slide>
+          <ion-slide [hidden]="cards.length > 0">  
+              <ion-card class="card-bg-light" >
+                <ion-card-content>
+        
+                  <h5 color="dark">You are yet to add a card </h5>
+                 
+                  <div class="card-footer">
+                    
+                  </div>
+                </ion-card-content>
+              </ion-card>   
+          </ion-slide>
+        </ion-slides>
+      </div>
+
+      <ion-buttons slot="start" mode="ios" class="ion-align-items-center ion-justify-content-center">
+        <ion-button (click)="addCard()" mode="ios" *ngIf="cardEmpty">
+          <ion-icon slot="start" name="card"></ion-icon>
+         Add card
+        </ion-button>
+        <div class="card-danger">
+          <ion-button (click)="withdraw()" mode="ios" *ngIf=!cardEmpty>
+            <ion-icon slot="start" name="close"></ion-icon>
+            Delete card
+          </ion-button>
+        </div>
+      </ion-buttons>
+    </div>
+    <div class="transactions">
+      <h4>Card Transactions</h4>
+      <ion-segment value="all" (ionChange)="switchPage($event)" mode="ios" class="ion-justify-content-between">
+        <ion-segment-button value="all" >
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="credit">
+          <ion-label>Credit</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="debit">
+          <ion-label>Debit</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <!-- All -->
+      <div *ngIf="all">        
+        <ion-row 
+          class="{{transaction.type}} ion-align-items-center ion-justify-content-between"
+          *ngFor="let transaction of recent"
+        > 
+          <ion-col size="7">
+            <span>
+              {{transaction.description}} 
+              <br />payment ID: {{transaction.ref}}
+              <small>{{transaction.created_at}}</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            {{transaction.amount | currency:"ZAR":'symbol':"1.2"}}
+          </ion-col>
+        </ion-row>
+      </div>
+      <!-- All -->
+
+      <!-- Credit -->
+      <div *ngIf="credit">
+        <ion-row 
+          class="{{transaction.type}} ion-align-items-center ion-justify-content-between"
+          *ngFor="let transaction of creditTrans"
+        > 
+          <ion-col size="7">
+            <span>
+              {{transaction.description}} 
+              <br /> payment ID: {{transaction.ref}} 
+              <small>{{transaction.created_at}}</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            {{transaction.amount | currency:"ZAR":'symbol':"1.2"}}
+          </ion-col>
+        </ion-row>
+      </div>
+      <!-- Credit -->
+
+      <!-- Debit -->
+      <div *ngIf="debit">
+        <ion-row 
+          class="{{transaction.type}} ion-align-items-center ion-justify-content-between"
+          *ngFor="let transaction of debitTrans"
+        > 
+          <ion-col size="7">
+            <span>
+              {{transaction.description}}  <br />
+              payment ID: {{transaction.ref}}
+              <small>{{transaction.created_at}}</small>
+            </span>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center amount">
+            {{transaction.amount | currency:"ZAR":'symbol':"1.2"}}
+          </ion-col>
+        </ion-row>
+      </div>
+      <!-- Debit -->
+      <div class="empty" [hidden]="isEmpty === true">
+        <div class="ion-row align-items-center justify-content-center">
+          <h5>No card transactions yet</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

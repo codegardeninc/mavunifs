@@ -1,0 +1,131 @@
+<ion-content>
+  <div id="container">
+    <div class="ion-text-center">
+      <h3>
+        Number Verification 
+        <p>Please input the 6 digit numbers sent to <br>
+          <strong>{{details.phonenumber}}</strong> for verification.
+        </p>
+      </h3>
+      <div class="icon">        
+        <img src="../../../../assets/imgs/phone.png" alt="">
+      </div>
+      <form #form="ngForm" (onSubmit)="verify(form)">
+        <p class="p">Use this OTP to verify <br />{{otp}} </p>
+        <ion-grid fixed>
+          <ion-row class="ion-justify-content-git checenter">
+            <ion-col size="2">
+              <ion-input 
+                type="text"
+                inputmode="numeric" 
+                minlength="1" 
+                name="otp1" 
+                #ot1 
+                [(ngModel)]="otp1" 
+                maxlength="1" 
+                (ionInput)="setAutoFocus(ot1, ot2)"
+                autofocus=true
+              >                
+              </ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input 
+                type="text"
+                inputmode="numeric" 
+                minlength="1" 
+                name="otp2" 
+                #ot2 
+                [(ngModel)]="otp2" 
+                maxlength="1" 
+                (ionInput)="setAutoFocus(ot2, ot3)"
+              >                
+              </ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input 
+                type="text"
+                inputmode="numeric" 
+                minlength="1" 
+                name="otp3" 
+                #ot3 
+                [(ngModel)]="otp3" 
+                maxlength="1" 
+                (ionInput)="setAutoFocus(ot3, ot4)"
+              >                
+              </ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input 
+                type="text"
+                inputmode="numeric" 
+                minlength="1" 
+                name="otp4" 
+                #ot4 
+                [(ngModel)]="otp4" 
+                maxlength="1" 
+                (ionInput)="setAutoFocus(ot4, ot5)"
+              >                
+              </ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input 
+                type="text"
+                inputmode="numeric" 
+                minlength="1" 
+                name="otp5" 
+                #ot5 
+                [(ngModel)]="otp5" 
+                maxlength="1" 
+                (ionInput)="setAutoFocus(ot5, ot6)"
+              >                
+              </ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input 
+                type="text"
+                inputmode="numeric" 
+                minlength="1" 
+                name="otp6" 
+                #ot6 
+                [(ngModel)]="otp6" 
+                maxlength="1" 
+                (ionInput)="setAutoFocus(ot6, verifyIt)"
+                (ionBlur)="verify(form)"
+              >                
+              </ion-input>
+              <ion-input style="display: none;" type="hidden" #verifyIt></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="btn">      
+          <ion-button expand="block" mode="ios">
+            Verify
+          </ion-button>
+        </div>
+      </form>
+      <ion-buttons slot="start" mode="ios" class="mt-5 resend-otp" >
+
+        <span>          
+          Didn't receive the code?
+        </span>
+        <ion-button (click)="getOtp()" fill="clear">RESEND</ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="start" mode="ios" >
+        <span>          
+          {{details.phonenumber}} not your number? 
+        </span>
+        <ion-button (click)="goBack()" fill="clear">GO BACK</ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="start" mode="ios" >
+        <span>          
+          Have an account?
+        </span>
+        <ion-button (click)="goBack()" fill="clear">LOGIN</ion-button>
+        <br/>
+      </ion-buttons>
+
+    </div>
+  </div>
+</ion-content>

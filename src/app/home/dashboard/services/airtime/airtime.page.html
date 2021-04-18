@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mobile Airtime</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container"> 
+    <div class="e-form">
+      <form #form="ngForm" (onSubmit)="onClick(form)">
+        <div>
+          <ion-select 
+              placeholder="Network provider" 
+              required
+              [(ngModel)]="details.network"
+              name="network"
+              (ngModelChange)="selectProvider()"
+            >
+            <ion-select-option 
+              *ngFor="let provider of operators"
+              value="{{provider.name}}" 
+            >
+              {{provider.name}}
+            </ion-select-option>
+          </ion-select>
+        </div>
+        <div>
+          <ion-input 
+            type="text" 
+            inputmode="tel" 
+            placeholder="Phone Number" 
+            required [(ngModel)]="details.phoneNumber"
+            name="phoneNumber"
+          >
+          </ion-input>
+        </div>
+        <div>
+          <ion-input 
+            type="number"  
+            inputmode="numeric"
+            placeholder="Amount"
+            required
+            [(ngModel)]="details.amount"
+            name="amount"
+          >
+        </ion-input>
+        </div>
+        <div class="btn">
+          <ion-button (click)="onClick(form)" expand="block" mode="ios">
+            NEXT
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+

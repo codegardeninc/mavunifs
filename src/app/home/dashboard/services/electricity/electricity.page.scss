@@ -1,0 +1,255 @@
+#container {
+	padding: 30px 30px;
+	font-family: 'Poppins';
+	position: relative;
+	height: 100%;
+
+	h3 {
+		margin: 15px 0px 15px 0px;
+		color: #0b4db1;
+		font-family: "Poppins";
+		font-size: 23px;
+		letter-spacing: 0.45px;
+		line-height: 28px;
+
+		p {
+			font-size: 12px;
+			color: #8c8c8c;
+			padding-top: 0px !important;
+		}
+	}
+}
+
+ion-buttons {
+	margin: 0;
+	ion-button {
+		--opacity: 1;
+		--padding-end: 0px;
+		--padding-start: 0px;
+		--background-hover: transparent;
+		margin: 0;
+		font-family: 'Poppins';
+		font-style: normal;
+		height: 19px;
+		--color: #09419e;
+		font-size: 13px;
+		letter-spacing: 0.16px;
+		line-height: 20px;
+		margin-left: -4px !important;
+	}
+}
+
+.btn {
+	ion-button {
+		--background: linear-gradient(270deg, #de0623 0%, #cd7d04 100%);
+		--background-activated: #cd7d04;
+		--background-activated-opacity: 1; //#0B4DB1 0E5ECA
+		--background-hover-opacity: 1;
+		--background-hover: transparent;
+		--border-radius: 6px;
+		--color: #ffffff;
+		--color-activated: #ffffff;
+		--color-focused: #ffffff;
+		--color-hover: #ffffff;
+		--opacity: 1;
+		--padding-top: 4px;
+		--padding-bottom: 4px;
+		min-height: 48px;
+		font-family: 'Avenir';
+		margin-top: 5vh;
+		text-transform: uppercase;
+	}
+}
+
+ion-select {
+	--padding-end: 8px;
+	--padding-start: 8px;
+	--placeholder-color: #000000 !important;
+	--placeholder-color-opacity: 1;
+	margin: 10px auto;
+	font-size: 12px;
+	font-family: 'Poppins';
+	box-sizing: border-box;
+	border: 2px solid #f3f3f3;
+	border-radius: 6px;
+	background-color: #f5f6fb;
+}
+
+ion-input {
+	margin: 10px auto;
+	font-size: 12px;
+	font-family: 'Poppins';
+	box-sizing: border-box;
+	border: 2px solid #f3f3f3;
+	border-radius: 6px;
+	--background: #f5f6fb;
+}
+
+ion-label {
+	color: #000000;
+	font-family: "Poppins";
+	font-size: 12px;
+	letter-spacing: 0;
+	line-height: 16px;
+	text-align: justify;
+}
+
+strong {
+	color: #0e5dc9;
+	font-family: 'Poppins';
+	font-size: 47px;
+	font-weight: bold;
+	letter-spacing: 0;
+	line-height: 70px;
+}
+
+h6 {
+	color: #0e5dc9;
+	font-family: "Poppins";
+	font-size: 16px;
+	letter-spacing: 0;
+	line-height: 25px;
+	margin: 0;
+}
+
+.card {
+	margin: 20px auto;
+}
+
+ion-header {
+	padding: 0 30px;
+
+	ion-title {
+		font-size: 14px;
+		color: #cd7d04;
+		margin: 0;
+		padding: 10px 10px 0 10p;
+		font-family: 'Poppins';
+	}
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(#000000, 0.3);
+	z-index: 2;
+}
+
+.e-form {
+	padding: 30px 0;
+}
+
+.form {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	// /height: 534px;
+	font-family: 'Poppins';
+	padding: 10px 30px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 45px 0 rgba(129, 129, 129, 0.31);
+	z-index: 3;
+
+	ion-buttons {
+		margin: 10px 0;
+		ion-button {
+			--border-style: none !important;
+			box-shadow: none !important;
+			color: #5f5e5e !important;
+			font-weight: 100 !important;
+			font-size: 20px !important;
+			letter-spacing: 0.29px;
+			line-height: 38px;
+			--background-hover: transparent;
+		}
+	}
+
+	h4 {
+		small {
+			display: block;
+			color: #333333;
+			font-family: 'Poppins';
+			font-size: 12px;
+			letter-spacing: 0.23px;
+			line-height: 18px;
+			width: 259px;
+		}
+	}
+
+	.btn {
+		ion-button {
+			--background: linear-gradient(270deg, #de0623 0%, #cd7d04 100%);
+			--background-activated: #3880ff;
+			--background-activated-opacity: 1; //#0B4DB1 0E5ECA
+			--background-hover-opacity: 1;
+			--background-hover: #cd7d04;
+			--border-radius: 6px;
+			--color: #ffffff;
+			--color-activated: #ffffff;
+			--color-focused: #ffffff;
+			--color-hover: #ffffff;
+			--opacity: 1;
+			--padding-top: 4px;
+			--padding-bottom: 4px;
+			max-width: 327px;
+			min-height: 48px;
+			font-family: 'Avenir';
+			margin: 15px auto;
+		}
+	}
+
+	h3 {
+		color: #0b4db1;
+		font-family: "Poppins";
+		font-size: 19px;
+		letter-spacing: 0.37px;
+		line-height: 28px;
+		text-align: center;
+	}
+
+	h6 {
+		text-align: center;
+		width: 261px;
+		margin: 15px auto;
+		font-size: 14px;
+	}
+
+	h5 {
+		font-size: 20px;
+	}
+
+	.success,
+	.danger {
+		text-align: center;
+		margin: 50px auto;
+		img {
+			width: 30%;
+		}
+	}
+
+	ion-label {
+		font-size: 12px;
+		margin-left: 20px;
+	}
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.btn-black {
+	ion-button {
+		--background: linear-gradient(270deg, #000000 0%, #333333 100%) !important;
+		font-family: 'Avenir';
+		margin: 50px auto 20px auto !important;
+	}
+}

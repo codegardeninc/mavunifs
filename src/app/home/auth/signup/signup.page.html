@@ -1,0 +1,32 @@
+<ion-content>
+  <div id="container">
+    <ion-buttons  class="ion-justify-content-between ion-align-items-center">
+      <ion-button slot="start" class="logo ion-text-left">
+        B
+      </ion-button>
+      <ion-button slot="end" (click)="goBack()" class="times" mode="ios">
+        X
+      </ion-button>
+    </ion-buttons> 
+    <h3>Get Started</h3>
+    <form #form="ngForm" (onSubmit)="checkUser(form)">
+      <div>
+        <ion-label class="label">Enter Phone Number</ion-label>
+        <ion-input 
+          type="tel" 
+          inputmode="tel" 
+          name="phonenumber"
+          ngModel
+          placeholder="08012345678" 
+          required
+        >          
+        </ion-input>
+      </div>
+      <ion-button (click)="checkUser(form)" expand="block" mode="ios">
+        Continue
+      </ion-button>
+    </form>
+   
+
+  </div>
+</ion-content>

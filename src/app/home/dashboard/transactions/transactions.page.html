@@ -1,0 +1,155 @@
+<ion-content>
+  <div id="container">
+    <h3>Transactions</h3> 
+    <div class="transactions">
+      <ion-segment value="all" (ionChange)="switchPages($event)" mode="ios" class="ion-justify-content-between">
+        <ion-segment-button value="all">
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="credit" >
+          <ion-label>Credit</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="debit">
+          <ion-label>Debit</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div [hidden]="debit === true || credit === true">   
+        <div class="{{saving.type}} transaction" *ngFor="let saving of transactions">          
+          <ion-row (click)="showDetails(saving.id)" class=" ion-align-items-center ion-justify-content-between"> 
+            <ion-col size="7">
+              <span>
+                {{saving.description}}
+                <br />Trnx ID: {{saving.ref}}
+                <small>{{saving.created_at}}  {{saving.transaction_time}}</small>
+              </span>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center amount">
+              {{saving.amount | currency:"ZAR":"symbol":"1.2"}}
+            </ion-col>
+          </ion-row>
+          <div class="details" *ngIf="details == saving.id">            
+            <div class="divider"></div>
+            <div [hidden]="saving.sub_type !== 'electricity'">              
+              <div class="sub-item">
+                <small>Generated Token: </small> <br>
+                {{saving.ref}}
+              </div>
+              <div class="divider"></div>
+              <div class="sub-item">
+                <small>Units: {{saving.ref}}</small> <br>
+              </div>
+              <div class="divider"></div>
+            </div>
+            <div class="action">
+              <ion-buttons class="ion-align-items-center ion-justify-content-evenly">
+                <ion-button (click)="copy(saving.id)" mode="ios">
+                  <ion-icon slot="start" name="copy"></ion-icon>  Copy
+                </ion-button>
+                <ion-button (click)="whatsappShare(saving.id)" mode="ios">
+                  <ion-icon slot="start" name="share-social"></ion-icon>  Share
+                </ion-button>
+                <ion-button (click)="doAction()" mode="ios">
+                  <ion-icon slot="start" name="download"></ion-icon>  Download
+                </ion-button>
+              </ion-buttons>
+            </div>
+          </div> 
+        </div> 
+    
+      </div>
+      <div [hidden]="credit === true || debitCredit === true">   
+        <div class="{{saving.type}} transaction" *ngFor="let saving of debitTransactions">          
+          <ion-row (click)="showDetails(saving.id)" class=" ion-align-items-center ion-justify-content-between"> 
+            <ion-col size="7">
+              <span>
+                {{saving.description}} <br />
+                Trnx ID: {{saving.ref}} 
+                <small>{{saving.created_at}}  {{saving.transaction_time}}</small>
+              </span>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center amount">
+              {{saving.amount | currency:"ZAR":"symbol":"1.2"}}
+            </ion-col>
+          </ion-row>
+          <div class="details" *ngIf="details == saving.id">            
+            <div class="divider"></div>
+            <div [hidden]="saving.sub_type !== 'electricity'">              
+              <div class="sub-item">
+                <small>Generated Token: </small> <br>
+                {{saving.ref}}
+              </div>
+              <div class="divider"></div>
+              <div class="sub-item">
+                <small>Units: {{saving.ref}}</small> <br>
+              </div>
+              <div class="divider"></div>
+            </div>
+            <div class="action">
+              <ion-buttons class="ion-align-items-center ion-justify-content-evenly">
+                <ion-button (click)="copy(saving.id)" mode="ios">
+                  <ion-icon slot="start" name="copy"></ion-icon>  Copy
+                </ion-button>
+                <ion-button (click)="whatsappShare(saving.id)" mode="ios">
+                  <ion-icon slot="start" name="share-social"></ion-icon>  Share
+                </ion-button>
+                <ion-button (click)="doAction()" mode="ios">
+                  <ion-icon slot="start" name="download"></ion-icon>  Download
+                </ion-button>
+              </ion-buttons>
+            </div>
+          </div>
+        </div> 
+    
+      </div>
+      <div [hidden]="debitCredit === true || debit === true">   
+        <div class="{{saving.type}} transaction" *ngFor="let saving of creditTransactions">          
+          <ion-row (click)="showDetails(saving.id)" class=" ion-align-items-center ion-justify-content-between"> 
+            <ion-col size="7">
+              <span>
+                {{saving.description}} 
+                <br />Trnx ID: {{saving.ref}} 
+                <small>{{saving.created_at}} {{saving.transaction_time}}</small>
+              </span>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center amount">
+              {{saving.amount | currency:"ZAR":"symbol":"1.2"}}
+            </ion-col>
+          </ion-row>
+          <div class="details" *ngIf="details == saving.id">            
+            <div class="divider"></div>
+            <div [hidden]="saving.sub_type !== 'electricity'">              
+              <div class="sub-item">
+                <small>Generated Token: </small> <br>
+                {{saving.ref}}
+              </div>
+              <div class="divider"></div>
+              <div class="sub-item">
+                <small>Units: {{saving.ref}}</small> <br>
+              </div>
+              <div class="divider"></div>
+            </div>
+            <div class="action">
+              <ion-buttons class="ion-align-items-center ion-justify-content-evenly">
+                <ion-button (click)="copy(saving.id)" mode="ios">
+                  <ion-icon slot="start" name="copy"></ion-icon>  Copy
+                </ion-button>
+                <ion-button (click)="whatsappShare(saving.id)" mode="ios">
+                  <ion-icon slot="start" name="share-social"></ion-icon>  Share
+                </ion-button>
+                <ion-button (click)="doAction()" mode="ios">
+                  <ion-icon slot="start" name="download"></ion-icon>  Download
+                </ion-button>
+              </ion-buttons>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="empty" [hidden]="isEmpty === true">
+        <div class="ion-row align-items-center justify-content-center">
+          <h5>No transactions yet</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

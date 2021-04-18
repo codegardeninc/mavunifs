@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Electricity Bill Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container"> 
+    <div class="e-form">
+      <form #form="ngForm" (onSubmit)="onClick(form)">
+       
+        <div>
+          <ion-select 
+            placeholder="Disco"
+            name="disco"
+            [(ngModel)]="details.disco"
+            required
+            (click)="loadProviders()"
+          >
+          <ion-select-option value="{{provider.product_id}}" *ngFor="let provider of operators">
+            {{provider.name}}
+          </ion-select-option>
+        </ion-select>
+        </div>
+        <div>
+          <ion-select required placeholder="Meter Type" name="type" [(ngModel)]="details.type">
+          <ion-select-option value="Prepaid">Prepaid</ion-select-option>
+          <ion-select-option value="Post paid">Post paid</ion-select-option>
+        </ion-select>
+        </div>
+        <div>
+          <ion-input 
+            type="text" 
+            placeholder="Meter Number"
+            [(ngModel)]="details.meterNo"
+            required
+            inputmode="number"
+            name="meterNo"
+          ></ion-input>
+        </div>
+        <div>
+          <ion-input 
+            type="number" 
+            name="amount"
+            placeholder="Amount" 
+            required 
+            inputmode="numeric"
+            [(ngModel)]="details.amount"
+          ></ion-input>
+        </div>
+        <div class="btn">
+          <ion-button (click)="onClick(form)" expand="block" mode="ios">
+            NEXT
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+

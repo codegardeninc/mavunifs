@@ -1,0 +1,348 @@
+#container {
+	padding: 30px 30px;
+	//height: 100%;
+	font-family: 'Poppins';
+	position: relative;
+
+	ion-button {
+		border-radius: 6px !important;
+		min-height: 40px;
+		margin: 10px 0px;
+	}
+
+	h3 {
+		font-weight: 600;
+		color: #38569a;
+		font-size: 24px;
+		font-family: 'Poppins';
+		padding: 20px 0px 20px 0px;
+		margin: 0;
+
+		p {
+			font-size: 12px;
+			color: #8c8c8c;
+			padding-top: 0px !important;
+		}
+	}
+}
+
+.d-flex {
+	display: flex;
+	h6 {
+		padding: 0;
+		margin: 0;
+		color: #0c61c4;
+	}
+
+	div {
+		display: flex;
+		align-items: center;
+
+		ion-icon {
+			margin-right: 4px;
+			color: lighten($color: #0c61c4, $amount: 30);
+		}
+	}
+}
+
+ion-buttons {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	opacity: .9 !important;
+
+	ion-icon {
+		font-size: 1.5rem;
+	}
+
+	ion-button {
+		--background-opacity: 1;
+		margin-left: 8px !important;
+		margin-right: 8px !important;
+		--border-color: #a9c4f3;
+		--border-radius: 10px;
+		--border-style: dashed;
+		--border-width: 2px;
+		--color: #1343b4;
+		--padding-bottom: 4px;
+		--padding-end: 4px;
+		--padding-start: 4px;
+		--padding-top: 4px;
+		width: 130px;
+		font-family: 'Poppins';
+		box-shadow: 0 9px 17px 0 rgba(157, 157, 157, 0.32);
+	}
+}
+
+ion-card {
+	--color: #ffffff;
+	width: 100%;
+	border-radius: 20px;
+	font-family: 'Poppins';
+	margin: 0 auto;
+
+	ion-card-content {
+		position: relative;
+		padding: 0;
+		height: 180px;
+		.layer-1 {
+			margin-top: 5px;
+			margin-left: 10px;
+			margin-right: 10px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			height: 20px;
+			background: linear-gradient(156.91deg, #fe5a54 0%, #ffa374 100%);
+		}
+		.layer-2 {
+			margin-top: -3px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			height: 100vh;
+			padding: 3px;
+			background: linear-gradient(325.19deg, #3d4778 0%, #444d89 100%);
+		}
+		.layer-3 {
+			position: relative;
+			border: dashed 2px #333333;
+			border-radius: 20px;
+			height: 152px;
+		}
+		.layer-4 {
+			margin-top: 4px;
+			margin-left: 4px;
+			margin-right: 4px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			height: 20px;
+			background: linear-gradient(270deg, #ffaf00 0%, #e1864a 100%);
+			// background: linear-gradient(90deg, #e68a4e 0%, #f5ba19ea 157.2%);
+		}
+
+		.card-footer {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding: 7px 15px;
+			z-index: 10;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			font-size: 12px;
+			img {
+				width: 25px !important;
+				margin-top: 2px !important;
+			}
+		}
+
+		strong {
+			font-size: 2rem;
+		}
+	}
+}
+
+h4 {
+	color: #0b4db1;
+	font-family: 'Avenir';
+	font-size: 20px;
+	font-weight: 900;
+	letter-spacing: 0.39px;
+	line-height: 28px;
+}
+
+ion-row {
+	padding: 2px;
+	margin: 7px 0px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(#c2c2c2, 0.3);
+
+	span {
+		font-size: 12px;
+		color: #38569a;
+
+		small {
+			color: #77869e;
+			font-family: 'Poppins';
+			font-size: 10px;
+			letter-spacing: 0.13px;
+			line-height: 9px;
+			display: block;
+		}
+	}
+
+	.amount {
+		color: #000000;
+		font-family: "Poppins";
+		font-size: 15px;
+		letter-spacing: 0.38px;
+		line-height: 23px;
+	}
+}
+
+ion-segment {
+	margin: 15px auto;
+}
+
+.form {
+	position: fixed;
+	bottom: 30px;
+	width: 100%;
+	z-index: 99;
+	// height: 434px;
+	font-family: 'Poppins';
+	padding: 10px 30px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 45px 0 rgba(#cccccc, 0.1);
+
+	ion-buttons {
+		margin: 0;
+		ion-button {
+			--border-style: none !important;
+			--background-hover: transparent;
+			box-shadow: none !important;
+			color: #000000;
+			font-weight: normal;
+			font-family: 'Poppins';
+			font-size: 15px;
+			letter-spacing: 0.29px;
+			line-height: 28px;
+		}
+	}
+
+	h4 {
+		small {
+			display: block;
+			color: #000000;
+			font-family: 'Poppins';
+			font-size: 12px;
+			letter-spacing: 0.23px;
+			line-height: 28px;
+		}
+	}
+
+	.btn {
+		ion-button {
+			--background: linear-gradient(270deg, #0089cf 0%, #ad2a86 100%);
+			--background-activated: #3880ff;
+			--background-activated-opacity: 1; //#0B4DB1 0E5ECA
+			--background-hover-opacity: 1;
+			--background-hover: transparent;
+			--border-radius: 6px;
+			--color: #ffffff;
+			--color-activated: #ffffff;
+			--color-focused: #ffffff;
+			--color-hover: #ffffff;
+			--opacity: 1;
+			--padding-top: 4px;
+			--padding-bottom: 4px;
+			max-width: 327px;
+			min-height: 48px;
+			font-family: 'Avenir';
+			margin: 15px auto !important;
+		}
+	}
+
+	h3 {
+		color: #0b4db1;
+		font-family: "Poppins";
+		font-size: 19px;
+		letter-spacing: 0.37px;
+		line-height: 28px;
+		text-align: center;
+	}
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background-color: #f5f5f5; //rgba(#000000, 0.9);
+}
+
+.btn-black {
+	ion-button {
+		--background: linear-gradient(270deg, #000000 0%, #333333 100%) !important;
+		font-family: 'Avenir';
+		margin: 50px auto 20px auto !important;
+	}
+}
+
+ion-select {
+	--padding-end: 8px;
+	--padding-start: 8px;
+	--placeholder-color: #000000 !important;
+	--placeholder-color-opacity: 1;
+	margin: 15px auto 20px auto;
+	font-size: 12px;
+	font-family: 'Poppins';
+	box-sizing: border-box;
+	height: 52px;
+	width: 327px;
+	border: 2px solid #f3f3f3;
+	border-radius: 6px;
+	background-color: #f5f6fb;
+}
+
+ion-input {
+	margin: 15px auto 20px auto;
+	font-size: 12px;
+	font-family: 'Poppins';
+	box-sizing: border-box;
+	height: 52px;
+	width: 327px;
+	border: 2px solid #f3f3f3;
+	border-radius: 6px;
+	--background: #f5f6fb;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.danger,
+.succes {
+	img {
+		width: 50%;
+	}
+}
+
+.text-danger {
+	color: #d30000;
+}
+
+h1 {
+	color: #0c61c4;
+}
+
+.transactions {
+	background-color: #ffffff;
+}
+
+.info {
+	font-size: 14px;
+	margin-top: 0 auto;
+	padding: 7px;
+	border-radius: 6px;
+	font-weight: 300;
+
+	strong {
+		color: var(--ion-color-primary);
+	}
+
+	span {
+		margin-right: 5px;
+	}
+}
+
+.btn-l {
+	border: solid 1px var(--ion-color-primary);
+}

@@ -1,0 +1,38 @@
+<ion-content>
+  <div id="container">
+    <!-- Form -->
+    <div class="overlay">
+      <div class="form">
+        <div> 
+          <form >
+            <ion-buttons slot="start" class="ion-align-items-center ion-justify-content-between">
+              <h4>
+                Transfer            
+              </h4>
+              <ion-button (click)="reject()" mode="ios">
+                Close X
+              </ion-button>
+            </ion-buttons>
+    
+            <div>
+              <div class="info">
+                <p>You can make direct transfer from any bank to your wallet</p>
+                <span>Bank:</span>  <strong>{{bankName}}</strong>  <br>
+                <span>Account number:</span> <strong>{{accountNumber}}</strong> <br>
+              </div>
+            </div>
+            <div class="btn">            
+              <ion-button (click)="accept()" mode="ios" expand="block">
+                I HAVE MADE TRANSFER
+              </ion-button>
+            </div>
+            <ion-button class="btn-l" fill="clear" (click)="reject()" mode="ios" expand="block">
+              CANCEL
+            </ion-button>
+          </form>         
+        </div>
+      </div>
+    </div>
+    <!-- Form -->
+  </div>
+</ion-content>

@@ -1,0 +1,97 @@
+<ion-content> 
+  <div id="container">    
+    <div class="form" >
+      <div class="edit">  
+        <form #form="ngForm" (onSubmit)="updateData(form)">
+          <!-- <h3>Edit profile</h3> -->
+          <ion-buttons mode="ios" slot="start" class="ion-align-items-center ion-justify-content-between">
+            <ion-button (click)="goBack()" mode="ios">
+              <ion-icon slot="start" name="chevron-back" mode="ios"></ion-icon>
+              Back
+              <!-- <h3>
+              </h3>  -->
+            </ion-button>
+            <ion-button mode="ios">
+              <h3>Edit profile</h3>
+            </ion-button>
+          </ion-buttons>
+          <div class="ion-text-center avatar">
+            <img src="{{profile_photo}}" alt="profile-photo" class="">
+            <div class="edit-btn">
+              <ion-button (click)="selectImage()">
+                <ion-icon slot="icon-only" name="pencil"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+          <ion-buttons [hidden]="showOption === false" mode="ios" class="align-items-center justify-content-center">
+            <ion-button mode="ios" slot="start" fill="clear" (click)="startUpload()">
+              Ok
+            </ion-button>
+            <ion-button mode="ios" slot="end" fill="clear" (click)="hideOption()">
+              Cancel
+            </ion-button>
+          </ion-buttons>
+          <div>
+            <ion-label class="label">First Name</ion-label>
+            <ion-input 
+              type="text" 
+              placeholder="Full Name"
+              name="first_name"
+              required
+              [(ngModel)]="profileDetails.first_name"
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label class="label">Last Name</ion-label>
+            <ion-input 
+              type="text" 
+              placeholder="Last Name"
+              name="last_name"
+              required
+              [(ngModel)]="profileDetails.last_name"
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label class="label">Email Address</ion-label>
+            <ion-input 
+              type="email" 
+              placeholder="Email Address"
+              required
+              name="email"
+              [(ngModel)]="profileDetails.email"
+              readonly
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label class="label">Phone Number</ion-label>
+            <ion-input 
+              type="tel" 
+              placeholder="Phone Number"
+              name="phone_number"
+              [(ngModel)]="profileDetails.phone_number"
+              readonly
+            ></ion-input>
+          </div>
+          <div>
+            <ion-label class="label">Date of Birth</ion-label>
+            <ion-input 
+              type="date" 
+              placeholder="Date of Birth"
+              name="dob"
+              required
+              [(ngModel)]="profileDetails.dob"
+            ></ion-input>
+          </div>
+          <div class="btn">
+            <ion-button (click)="updateData(form)" expand="block" mode="ios">
+              UPDATE
+            </ion-button>
+          </div>
+            <ion-button class="l-btn" fill="clear" (click)="cancel()" expand="block" mode="ios">
+              CANCEL
+            </ion-button>
+        </form>      
+      </div>
+    </div>
+  </div>
+</ion-content>

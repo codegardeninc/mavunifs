@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mobile Data</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container"> 
+    <div class="e-form">
+      <form #form="ngForm" (onSubmit)="onClick(form)">
+        <div>
+          <ion-select 
+            placeholder="Network provider" 
+            required
+            [(ngModel)]="details.network"
+            (ngModelChange)="selectProvider()"
+            name="network"
+          >
+            <ion-select-option 
+              *ngFor="let provider of operators"
+              value="{{provider.name}}" 
+            >
+            {{provider.name}}
+            </ion-select-option>
+          </ion-select>
+        </div>
+        <div>
+            <ion-select 
+              placeholder="Select bundle type" 
+              required
+              [(ngModel)]="details.amount"
+              (ngModelChange)="selectBundle()"
+              name="bundle"
+            >
+            <ion-select-option 
+              *ngFor="let bundle of bundles"
+              value="{{bundle.amount}}" 
+            >
+            ₦{{bundle.amount}} - {{bundle.data}}
+            </ion-select-option>
+          </ion-select>
+        </div>
+        <div>
+          <ion-input 
+            type="text" 
+            inputmode="tel" 
+            placeholder="Phone Number" 
+            required [(ngModel)]="details.phoneNumber"
+            name="phone_number"
+          >
+          </ion-input>
+        </div>
+        <div>
+          <ion-input 
+            type="number"  
+            inputmode="numeric"
+            placeholder="Amount"
+            readonly
+            [(ngModel)]="details.amount"
+            name="amount"
+          >
+        </ion-input>
+        </div>
+        <div class="btn">
+          <ion-button (click)="onClick(form)" expand="block" mode="ios">
+            NEXT
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+
