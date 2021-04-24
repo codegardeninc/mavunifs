@@ -10,6 +10,7 @@ import { AppService } from 'src/app/providers/api/app.service';
 import { UserData } from 'src/app/providers/api/user-data.service';
 import { VerificationPage } from '../../verification/verification.page';
 import { ConfirmationPage } from '../../confirmation/confirmation.page';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 
 @Component({
@@ -171,6 +172,7 @@ export class KycPage implements OnInit {
   }
    
   resiAddress() {
+    console.log(this.residential_address)
     if(this.residential_address === null || this.residential_address === undefined) {
       //this.showMeans = false
       this.action_type = 'resi_address'
@@ -251,7 +253,14 @@ export class KycPage implements OnInit {
       // }
     }
     else if(option === 'means_of_id') {
-      if(this.means_of_id === null || this.means_of_id === undefined || this.means_of_id === "https://app.mavunifs.com/storage/means_of_identity") { 
+      if(this.means_of_id === null || 
+        this.means_of_id === undefined || 
+        !this.means_of_id.toLowerCase().includes('.jpeg') || 
+        !this.means_of_id.toLowerCase().includes('.jpg') || 
+        !this.means_of_id.toLowerCase().includes('.png') || 
+        !this.means_of_id.toLowerCase().includes('.svg') ||
+        !this.means_of_id.toLowerCase().includes('.gif')        
+        ) { 
         this.isMeans = true
         this.isPhoto = false
         this.showMeans = false
@@ -268,7 +277,15 @@ export class KycPage implements OnInit {
       }
     }
     else if(option === 'residential_document') {
-      if(this.residential_document === null || this.residential_document === undefined || this.residential_document === "https://app.mavunifs.com/storage/means_of_identity") { 
+      console.log(`this.residential_document`, this.residential_document)
+      if(this.residential_document === null || 
+        this.residential_document === undefined || 
+        !this.residential_document.toLowerCase().includes('.jpeg') || 
+        !this.residential_document.toLowerCase().includes('.jpg') || 
+        !this.residential_document.toLowerCase().includes('.png') || 
+        !this.residential_document.toLowerCase().includes('.svg') ||
+        !this.residential_document.toLowerCase().includes('.gif')
+        ) { 
         this.isMeans = false
         this.isPhoto = false
         this.showMeans = false
@@ -279,7 +296,7 @@ export class KycPage implements OnInit {
         this.showOption = true
         this.isbvn = false
         this.displayData = this.residential_document
-        this.message = "Residential Document"
+        this.message = "Proof of Address"
         console.log('this.residential_document', this.residential_document)
         this.profileModal()
         return;

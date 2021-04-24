@@ -6,8 +6,8 @@
         Back
       </ion-button>
     </ion-buttons>
-     <h3>KYC</h3>
-     <small>The following documents are very important to complete your Mavunifs account</small>
+     <h3>Social Assurance Score</h3>
+     <small>The following documents are very important to complete your MavuniFS account</small>
 
      <div class="tag" [hidden]="means_of_id !== 'https://app.mavunifs.com/storage/means_of_identity'">
        <span>Please upload your means of <br> identification</span>
@@ -29,33 +29,33 @@
       <div class="form">
         <label class="nav-item" (click)="verifyBvn()">
           ID Number <span>{{national_id}}</span>
-          <img src="../../../../../assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false'">
-          <img class="icon" src="../../../../../assets/icon/close.svg" width="25" alt="" [hidden]="badge_flag === 'true' ">
+          <img src="assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false'">
+          <img class="icon" src="assets/icon/close.svg" width="25" alt="" [hidden]="badge_flag === 'true' ">
         </label>
         <label class="nav-item" (click)="selectImage('means_of_id')">
           Photo of Means of ID
-          <img class="icon" src="../../../../../assets/icon/close.svg" width="25" alt=""  [hidden]="badge_flag === 'true'">
-          <img src="../../../../../assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false' "> 
+          <img class="icon" src="assets/icon/close.svg" width="25" alt=""  [hidden]="badge_flag === 'true'">
+          <img src="assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false' "> 
         </label>
         <label class="nav-item" (click)="selectImage('photo')">
           Selfie
-          <img class="icon" src="../../../../../assets/icon/close.svg" width="25" alt="" [hidden]="photo !== 'https://app.mavunifs.com/storage/profile_photos/no-image.jpg'">
-          <img src="../../../../../assets/icon/correct.svg" width="25" alt="" [hidden]="photo === 'https://app.mavunifs.com/storage/profile_photos/no-image.jpg'">
+          <img class="icon" src="assets/icon/close.svg" width="25" alt="" [hidden]="photo !== 'https://app.mavunifs.com/storage/profile_photos/no-image.jpg'">
+          <img src="assets/icon/correct.svg" width="25" alt="" [hidden]="photo === 'https://app.mavunifs.com/storage/profile_photos/no-image.jpg'">
         </label>
         <label class="nav-item" (click)="resiAddress()">
           Residential Address
-          <img class="icon" src="../../../../../assets/icon/close.svg" width="25" alt=""  [hidden]="badge_flag === 'true'">
-          <img src="../../../../../assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false'"> 
+          <img class="icon" src="assets/icon/close.svg" width="25" alt=""  [hidden]="badge_flag === 'true'">
+          <img src="assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false'"> 
         </label>        
-        <label class="nav-item" (click)="selectImage('residential_address')">
-          Residential Document
-          <img class="icon" src="../../../../../assets/icon/close.svg" width="25" alt=""  [hidden]="badge_flag === 'true' ">
-          <img src="../../../../../assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false'"> 
+        <label class="nav-item" (click)="selectImage('residential_document')">
+          Proof of Address
+          <img class="icon" src="assets/icon/close.svg" width="25" alt=""  [hidden]="badge_flag === 'true' ">
+          <img src="assets/icon/correct.svg" width="25" alt="" [hidden]="badge_flag === 'false'"> 
         </label>        
         <label class="nav-item" (click)="nextofKin()">
           Next of KIN
-          <img class="icon" src="../../../../../assets/icon/close.svg" width="25" alt=""  [hidden]="next_of_kin !== ''">
-          <img src="../../../../../assets/icon/correct.svg" width="25" alt="" [hidden]="next_of_kin === '' || next_of_kin === 'undefined'"> 
+          <img class="icon" src="assets/icon/close.svg" width="25" alt=""  [hidden]="next_of_kin !== ''">
+          <img src="assets/icon/correct.svg" width="25" alt="" [hidden]="next_of_kin === '' || next_of_kin === 'undefined'"> 
         </label>        
       </div>
   </div>

@@ -541,6 +541,22 @@ export class AppService {
     );
   }  
 
+  appSettings(attr): Observable<any> {
+    console.log("sent", attr);
+    return this.http.post(`${environment.baseUrl}/transaction/settings/app-settings`, attr, this.httpOptions).pipe(
+      tap(_ => this.log("response received")),
+      catchError(this.handleError("Ticket", []))
+    );
+  }  
+
+  getAppSettings(userid): Observable<any> {
+    console.log("sent", userid);
+    return this.http.get(`${environment.baseUrl}/transaction/settings/app-settings/${userid}`, this.httpOptions).pipe(
+      tap(_ => this.log("response received")),
+      catchError(this.handleError("Ticket", []))
+    );
+  }  
+
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
 

@@ -8,18 +8,31 @@
     </ion-buttons>
     <h3>Notification Settings</h3>
     <div class="form">
-      <div class="form-item">
-        <ion-item lines="none"> 
-          <ion-label>Push Notification</ion-label>
-          <ion-toggle slot="end"></ion-toggle>
-        </ion-item>
-      </div>
-      <div class="form-item">
-        <ion-item lines="none"> 
-          <ion-label>Email Notification</ion-label>
-          <ion-toggle slot="end"></ion-toggle>
-        </ion-item>
-      </div>
+      <form #form="ngForm" (onSubmit)="saveSetting(form)">
+        <div class="form-item">
+          <ion-item lines="none"> 
+            <ion-label>Push Notification</ion-label>
+            <ion-toggle 
+              slot="end" 
+              name="push_notification"
+              [(ngModel)]="details.push_notification"
+              (ionChange)="saveSetting(form)"
+            ></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="form-item">
+          <ion-item lines="none"> 
+            <ion-label>Email Notification</ion-label>
+            <ion-toggle 
+              slot="end" 
+              name="email_notification"
+              [(ngModel)]="details.email_notification"
+              (ionChange)="saveSetting(form)"
+              >              
+            </ion-toggle>
+          </ion-item>
+        </div>
+      </form>
     </div>
   </div>
 </ion-content>

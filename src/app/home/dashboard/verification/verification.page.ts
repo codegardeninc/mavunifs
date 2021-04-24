@@ -13,7 +13,27 @@ import { SuccessPage } from '../success/success.page';
   styleUrls: ['./verification.page.scss'],
 })
 export class VerificationPage implements OnInit {
+  showResidentialAddress = false;
+  showNextOfKin = false;
+  showNationalId = false;
 
+  details = {
+    //bvn: '',
+    national_id: ''
+  }
+
+  next_of_kin :any
+
+  detail = {
+    userid: '',
+    residential_address: ''
+  }
+
+  type: any
+  message: string
+  title: string
+  action_type: any
+  user_id: any
   constructor(
     public modal: ModalController,
     public emodal: ModalController,
@@ -35,23 +55,6 @@ export class VerificationPage implements OnInit {
     this.detail.userid = this.user_id
   }
 
-  details = {
-    //bvn: '',
-    national_id: ''
-  }
-
-  next_of_kin :any
-
-  detail = {
-    userid: '',
-    residential_address: ''
-  }
-
-  type: any
-  message: string
-  title: string
-  action_type: any
-  user_id: any
 
   async presentLoader() {
     let loader = await this.loader.create({

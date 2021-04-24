@@ -247,7 +247,7 @@ export class WalletPage implements OnInit {
   }
 
   withdrawal = () => {
-    this.router.navigate(['/home/user/dashboard/services/fund-transfer'])
+    this.router.navigate(['/home/user/savings/withdraw'])
   }
 
   onClick = () => {
